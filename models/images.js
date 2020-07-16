@@ -16,11 +16,12 @@ module.exports = function (sequelize,DataTypes){
             type: DataTypes.STRING
         }
     })
-    // 
+ 
     Images.associate = function(model){
         Images.belongsTo(model.Event , {
             foreignKey : {
-                allowNull : false
+                name: 'eventId',
+                allowNull: false
             },
         });
     }
