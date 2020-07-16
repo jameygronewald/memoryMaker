@@ -6,9 +6,7 @@ module.exports = function (sequelize,DataTypes){
     })
     // the associate property is to connect two tables together.
     Category.associate = function(model){
-        Category.belongsTo(model.Event , {
-            foreignKey: "EventId"
-        })
-    }
+        Category.hasMany(model.Event)
+    };
     return Category;
 };

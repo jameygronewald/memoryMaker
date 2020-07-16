@@ -42,8 +42,8 @@ module.exports = function(sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
     // the associate property is to connect two tables together.
-      User.associate = function(model){
-        User.hasMany(model.Event)
-    }
+  User.associate = function(model){
+    User.hasMany(model.Event)
+  };
   return User;
 };
