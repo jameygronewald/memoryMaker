@@ -5,6 +5,12 @@ module.exports = function (sequelize,DataTypes){
         },
         Dates: {
             type: DataTypes.STRING
+        },
+        Description: {
+            type: DataTypes.STRING
+        },
+        Location: {
+            type: DataTypes.STRING
         }
     })
     // the associate property is to connect two tables together.
