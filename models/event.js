@@ -1,16 +1,16 @@
 module.exports = function (sequelize,DataTypes){
     const Event = sequelize.define("Event",{
-        Title: {
+        title: {
             type: DataTypes.STRING
         },
-        Dates: {
+        date: {
             type: DataTypes.STRING
         }
     })
     // the associate property is to connect two tables together.
     Event.associate = function(model){
         Event.belongsTo(model.Event , {
-            foreignKey: "EventID"
+            foreignKey: "EventId"
         })
     }
     return Event;

@@ -22,12 +22,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     // First name required
-    first_name: {
+    firstName: {
         type: DataTypes.STRING,
         allowNull: false
     },
     // Last name required
-    last_name: {
+    lastName: {
         type: DataTypes.STRING,
         allowNull: false
     }
