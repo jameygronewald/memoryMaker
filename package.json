@@ -1,28 +1,28 @@
 {
-  "name": "mvc-starter",
+  "name": "project-two",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonathanjwatson/mvc-starter.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jonathanjwatson/mvc-starter/issues"
-  },
-  "homepage": "https://github.com/jonathanjwatson/mvc-starter#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^3.0.0",
     "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
     "sequelize": "^6.3.3"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austingraphicandweb/project-two.git"
+  },
+  "author": "Group10",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/austingraphicandweb/project-two/issues"
+  },
+  "homepage": "https://github.com/austingraphicandweb/project-two#readme"
 }
