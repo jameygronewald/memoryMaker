@@ -1,8 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   const Image = sequelize.define("Image", {
-    eventId: {
-      type: DataTypes.INTEGER,
-    },
     URL: {
       type: DataTypes.STRING,
       validate: {
@@ -24,9 +21,9 @@ module.exports = function (sequelize, DataTypes) {
   Image.associate = function (models) {
     Image.belongsTo(models.Event, {
       foreignKey: {
-        name: "eventId",
         allowNull: false,
       },
     });
   };
+  return Image;
 };
