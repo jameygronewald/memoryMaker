@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="/memories">
         <h4>Memories Logo</h4>
       </a>
     </div>
@@ -27,11 +27,11 @@
 
 </nav>
 <div class="container">
-  <form action="/">
+  <form id="newMemoryForm">
     <div class="column">
 
-      <label for="dates"> Date:</label>
-      <input type="date" id="dates" name="dates">
+      <label for="date"> Date:</label>
+      <input type="date" id="date" name="date">
     </div>
     <div class="column">
 
@@ -43,11 +43,11 @@
       <label for="location">Where you were?</label>
       <input placeholder="location" type="text" id="location" name="location">
     </div>
-    <div class="column">
+    {{!-- <div class="column">
 
       <label for="category">Category</label>
       <input placeholder="category" type="text" id="category" name="category">
-    </div>
+    </div> --}}
 
     <div class="column">
 
@@ -57,12 +57,12 @@
     </div>
     <div class="column">
       <div class="  buttons">
-        <a id="upload-Images" class="btn button is-primary">
+        <a id="url" class="btn button is-primary">
           Upload Images </a>
       </div>
     </div>
 
-    <div class="stars">
+    <div id="rating" class="stars">
 
       <input class="star star-5" id="star-5" type="radio" name="star" />
       <label class="star star-5" for="star-5"></label>
