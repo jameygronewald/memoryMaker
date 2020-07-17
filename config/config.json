@@ -1,20 +1,20 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "ferial08",
+=======
+    "password": "password",
+>>>>>>> 0648cc8c382d2b6282be97973226894e70e6f15a
     "database": "memories_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "password",
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }
