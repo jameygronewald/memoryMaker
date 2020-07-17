@@ -13,4 +13,8 @@ router.get("/login", (req, res) => {
     res.render("login");
 });
 
+router.get("/memories", (req, res) => {
+    res.render("memories");
+});
+
 module.exports = router;
