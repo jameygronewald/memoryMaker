@@ -14,7 +14,8 @@ $(document).ready(function() {
         return;
       }
   
-      loginUser(userData.username, userData.password);
+      // loginUser(userData.username, userData.password);
+      console.log(userData);
       usernameInput.val("");
       passwordInput.val("");
     });

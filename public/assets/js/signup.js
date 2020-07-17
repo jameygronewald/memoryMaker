@@ -1,14 +1,12 @@
-// this is a boiler plate and needs to be filled in based on information relavent to project two
 $(document).ready(function() {
     const signupForm = $("#signupForm");
     const firstNameInput = $("#firstName");
     const lastNameInput = $("#lastName");
-    const newEmailInput = $("#newEmailInput")
+    const newEmailInput = $("#newEmail")
     const newUsernameInput = $("#newUsername");
     const newPasswordInput = $("#newPassword");
     const confirmPasswordInput = $("#confirmPassword");
   
-    // When the signup button is clicked, we validate the email and password are not blank
     signupForm.on("submit", function(event) {
       event.preventDefault();
       const userData = {
@@ -25,16 +23,16 @@ $(document).ready(function() {
       if (userData.password !== userData.confirmPassword) {
         return;
       };
-      
-      signUpUser(userData);
-      emailInput.val("");
-      passwordInput.val("");
+      console.log(userData);
+      // signUpUser(userData);
+      newEmailInput.val("");
+      newPasswordInput.val("");
     });
-    
+
     function signUpUser(newUser) {
       $.post("/api/signup", newUser)
         .then(function(data) {
-          window.location.replace("/members");
+          window.location.replace("/memories");
         })
         .catch(handleLoginErr);
     };

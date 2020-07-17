@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "ferial08",
-=======
-    "password": "password",
->>>>>>> 0648cc8c382d2b6282be97973226894e70e6f15a
     "database": "memories_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -13,8 +9,16 @@
   "test": {
     "username": "root",
     "password": "password",
-    "database": "database_test",
+    "database": "memories_db",
     "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "memories_db",
+    "host": "127.0.0.1",
+    "port": 3306,
     "dialect": "mysql"
   }
 }
