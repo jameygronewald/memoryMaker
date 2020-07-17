@@ -14,7 +14,7 @@
         </a>
       </div>
     </div>
-    
+
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
@@ -43,7 +43,26 @@
       <label for="location">Where you were?</label>
       <input placeholder="location" type="text" id="location" name="location">
     </div>
-     <div class="stars">
+    <div class="column">
+
+      <label for="category">Category</label>
+      <input placeholder="category" type="text" id="category" name="category">
+    </div>
+
+    <div class="column">
+
+      <label for="description">Describe your memories here:</label>
+      <textarea type="text" id="description" name="description"></textarea>
+
+    </div>
+    <div class="column">
+      <div class="  buttons">
+        <a id="upload-Images" class="btn button is-primary">
+          Upload Images </a>
+      </div>
+    </div>
+
+    <div class="stars">
 
       <input class="star star-5" id="star-5" type="radio" name="star" />
       <label class="star star-5" for="star-5"></label>
@@ -57,8 +76,13 @@
       <label class="star star-1" for="star-1"></label>
 
     </div>
+
     <div class="column">
-      <input type="submit">
+      <div class=" buttons">
+        <a id="save-New-Memories" class=" btn button is-primary">
+          Save New Memories
+        </a>
+      </div>
     </div>
   </form>
 
@@ -73,10 +97,13 @@
   .navbar-item {
     color: white;
   }
-  input, label {
-    display:block;
-}
-div.stars {
+
+  input,
+  label {
+    display: block;
+  }
+
+  div.stars {
     width: 270px;
     display: inline-block;
   }
@@ -115,6 +142,26 @@ div.stars {
   label.star:before {
     content: '\f006';
     font-family: FontAwesome;
+  }
+
+  textarea {
+    width: 500px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+
+  }
+
+  input {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+
+  }
+
+  .btn {
+    border-radius: 10px;
+
   }
 </style>
 
