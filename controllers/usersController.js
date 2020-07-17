@@ -2,7 +2,13 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.post("/api/signup", (req, res) => {
+router.get('/', (req, res) => {
+  db.User.findAll().then(data => {
+    res.json(data);
+  })
+})
+
+router.post("/", (req, res) => {
   db.User.create(req.body)
     .then(result => {
       res.json({

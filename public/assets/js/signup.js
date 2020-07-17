@@ -33,16 +33,18 @@ $(document).ready(function() {
     });
 
     function signUpUser(newUser) {
-      $.post('/api/signup', newUser)
-        .then(data => {
+      $.post('/users', newUser)
+        .then(() => {
+          console.log('Added new user!')
           window.location.replace('/memories');
         })
-        .catch(console.log('error'));
+        .catch(err => {
+          console.log(err)
+        });
     };
   
     // function handleLoginErr(err) {
     //   $('').text(err.responseJSON);
     //   $('').fadeIn(500);
     // }
-  });
-  
+}); 
