@@ -1,6 +1,5 @@
 // this is a boiler plate and needs to be filled in based on information relavent to project two
 $(document).ready(function() {
-    // Getting references to our form and input
     var signUpForm = $("");
     var emailInput = $("");
     var passwordInput = $("");
