@@ -32,6 +32,6 @@ SELECT * FROM memories_db.images;
 
 INSERT INTO memories_db.images (url, caption, altAttribute, createdAt, updatedAt)
 VALUES ("https://images.unsplash.com/photo-1533141657590-d8aa5e631eda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60","City at Night", "City", "2020/07/12","2020/07/12"),("https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80","City in Italy", "Small town", "2020/07/12","2020/07/12");
-DELETE FROM memories_db.events
+DELETE FROM memories_db.images
 WHERE id=1;
 

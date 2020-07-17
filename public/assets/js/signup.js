@@ -1,39 +1,43 @@
 // this is a boiler plate and needs to be filled in based on information relavent to project two
 $(document).ready(function() {
     const signupForm = $("#signupForm");
-    const emailInput = $("");
-    const passwordInput = $("");
+    const firstNameInput = $("#firstName");
+    const lastNameInput = $("#lastName");
+    const newEmailInput = $("#newEmailInput")
+    const newUsernameInput = $("#newUsername");
+    const newPasswordInput = $("#newPassword");
+    const confirmPasswordInput = $("#confirmPassword");
   
     // When the signup button is clicked, we validate the email and password are not blank
     signupForm.on("submit", function(event) {
       event.preventDefault();
       const userData = {
-        email: emailInput.val().trim(),
-        password: passwordInput.val().trim()
+        firstName: firstNameInput.val().trim(),
+        lastName: lastNameInput.val().trim(),
+        email: newEmailInput.val().trim(),
+        username: newUsernameInput.val().trim(),
+        password: newPasswordInput.val().trim(),
+        confirmPassword: confirmPasswordInput.val().trim()
       };
-  
-      if (!userData.email || !userData.password) {
+      if (!userData.firstName || !userData.lastName || !userData.email || !userData.username || !userData.password) {
         return;
-      }
-      // If we have an email and password, run the signUpUser function
-      signUpUser(userData.email, userData.password);
+      };
+      if (userData.password !== userData.confirmPassword) {
+        return;
+      };
+      
+      signUpUser(userData);
       emailInput.val("");
       passwordInput.val("");
     });
-  
-    // Does a post to the signup route. If successful, we are redirected to the members page
-    // Otherwise we log any errors
-    function signUpUser(email, password) {
-      $.post("/api/signup", {
-        email: email,
-        password: password
-      })
+    
+    function signUpUser(newUser) {
+      $.post("/api/signup", newUser)
         .then(function(data) {
           window.location.replace("/members");
-          // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(handleLoginErr);
-    }
+    };
   
     function handleLoginErr(err) {
       $("").text(err.responseJSON);
