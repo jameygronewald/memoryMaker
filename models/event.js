@@ -1,11 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   const Event = sequelize.define("Event", {
-    userId: {
-      type: DataTypes.INTEGER,
-    },
-    categoryId: {
-      type: DataTypes.INTEGER,
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,16 +34,14 @@ module.exports = function (sequelize, DataTypes) {
   Event.associate = function (models) {
     Event.belongsTo(models.User, {
       foreignKey: {
-        name: "userId",
-        allowNull: false,
+        allowNull: false
       },
     });
   };
   Event.associate = function (models) {
     Event.belongsTo(models.Category, {
       foreignKey: {
-        name: "categoryId",
-        allowNull: false,
+        allowNull: false
       },
     });
   };
