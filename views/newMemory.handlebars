@@ -1,11 +1,68 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <!-- navbar items, navbar burger... -->
-  </div>
+  <div class="container">
+
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <h4>Memories Logo</h4>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          View Memories
+        </a>
+      </div>
+    </div>
+    
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a id="logout" class="button is-primary">
+            Log out
+          </a>
+        </div>
+      </div>
+    </div>
+
 </nav>
 <div class="container">
+  <form action="/">
+    <div class="column">
+
+      <label for="dates"> Date:</label>
+      <input type="date" id="dates" name="dates">
+    </div>
+    <div class="column">
+
+      <label for="title">Memory Title:</label>
+      <input placeholder="title" type="text" id="title" name="title">
+    </div>
+    <div class="column">
+
+      <label for="location">Where you were?</label>
+      <input placeholder="location" type="text" id="location" name="location">
+    </div>
+    <div class="column">
+      <input type="submit">
+    </div>
+  </form>
 
 </div>
+
+<style>
+  .navbar {
+    background-color: rgb(42, 42, 235);
+
+  }
+
+  .navbar-item {
+    color: white;
+  }
+  input, label {
+    display:block;
+}
+</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/newMemory.js"></script>
