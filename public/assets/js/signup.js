@@ -1,13 +1,13 @@
 // this is a boiler plate and needs to be filled in based on information relavent to project two
 $(document).ready(function() {
-    var signUpForm = $("");
-    var emailInput = $("");
-    var passwordInput = $("");
+    const signupForm = $("#signupForm");
+    const emailInput = $("");
+    const passwordInput = $("");
   
     // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("submit", function(event) {
+    signupForm.on("submit", function(event) {
       event.preventDefault();
-      var userData = {
+      const userData = {
         email: emailInput.val().trim(),
         password: passwordInput.val().trim()
       };
