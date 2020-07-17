@@ -54,7 +54,7 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
   Event.associate = function (models) {
-    Event.hasMany(models.Images);
+    Event.hasMany(models.Image);
   };
   return Event;
 };
