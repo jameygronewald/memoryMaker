@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-// /api/alerts/
 router.post("/", (req, res) => {
   console.log(req.body);
   const{title, date, description, location, category, rating} = req.body;
@@ -51,7 +50,7 @@ router.post("/", (req, res) => {
       res.json({
         error: false,
         data: result,
-        message: "Successfully created new alert",
+        message: "Successfully created new memory",
       });
     })
     .catch((err) => {
@@ -59,7 +58,7 @@ router.post("/", (req, res) => {
       res.status(500).json({
         error: true,
         data: null,
-        message: "Unable to create new alert.",
+        message: "Unable to create new memory.",
       });
     });
 });

@@ -8,6 +8,7 @@ const ViewsController = require("./controllers/viewsController.js");
 const APIController = require("./controllers/apiController");
 const UsersController = require("./controllers/usersController");
 const EventsController = require("./controllers/eventsController");
+const MemoriesController = require("./controllers/memoriesController")
 
 
 // Parse application body as JSON
@@ -25,6 +26,7 @@ app.use(ViewsController);
 app.use(APIController);
 app.use("/users", UsersController);
 app.use("/api/newMemory", EventsController);
+app.use("/api/memories", MemoriesController);
 
 
 
