@@ -2,10 +2,15 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-// /api/users/
+router.get('/', (req, res) => {
+  db.User.findAll().then(data => {
+    res.json(data);
+  })
+})
+
 router.post("/", (req, res) => {
   db.User.create(req.body)
-    .then((result) => {
+    .then(result => {
       res.json({
         error: false,
         data: result,
@@ -23,17 +28,17 @@ router.post("/", (req, res) => {
 });
 
 // /api/users/:id
-router.put("/:id", (req, res) => {
-  res.json({
-    message: "Put route",
-  });
-});
+// router.put("/:id", (req, res) => {
+//   res.json({
+//     message: "Put route",
+//   });
+// });
 
-// /api/users/:id
-router.delete("/:id", (req, res) => {
-  res.json({
-    message: "Delete route",
-  });
-});
+// // /api/users/:id
+// router.delete("/:id", (req, res) => {
+//   res.json({
+//     message: "Delete route",
+//   });
+// });
 
 module.exports = router;

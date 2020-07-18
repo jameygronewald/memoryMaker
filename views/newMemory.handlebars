@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="/memories">
         <h4>Memories Logo</h4>
       </a>
     </div>
@@ -27,11 +27,11 @@
 
 </nav>
 <div class="container">
-  <form action="/">
+  <form id="newMemoryForm">
     <div class="column">
 
-      <label for="dates"> Date:</label>
-      <input type="date" id="dates" name="dates">
+      <label for="date"> Date:</label>
+      <input type="date" id="date" name="date">
     </div>
     <div class="column">
 
@@ -57,29 +57,29 @@
     </div>
     <div class="column">
       <div class="  buttons">
-        <a id="upload-Images" class="btn button is-primary">
+        <a id="url" class="btn button is-primary">
           Upload Images </a>
       </div>
     </div>
 
-    <div class="stars">
-
-      <input class="star star-5" id="star-5" type="radio" name="star" />
+    <div id="rating" class="stars">
+      <label for="ratings">Rate your memories:</label>
+      <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
       <label class="star star-5" for="star-5"></label>
-      <input class="star star-4" id="star-4" type="radio" name="star" />
+      <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
       <label class="star star-4" for="star-4"></label>
-      <input class="star star-3" id="star-3" type="radio" name="star" />
+      <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
       <label class="star star-3" for="star-3"></label>
-      <input class="star star-2" id="star-2" type="radio" name="star" />
+      <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
       <label class="star star-2" for="star-2"></label>
-      <input class="star star-1" id="star-1" type="radio" name="star" />
+      <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
       <label class="star star-1" for="star-1"></label>
 
     </div>
 
     <div class="column">
       <div class=" buttons">
-        <a id="save-New-Memories" class=" btn button is-primary">
+        <a id="saveNewMemories" class=" btn button is-primary">
           Save New Memories
         </a>
       </div>
@@ -166,4 +166,4 @@
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/assets/js/createMemory.js"></script>
+<script src="/assets/js/newMemory.js"></script>
