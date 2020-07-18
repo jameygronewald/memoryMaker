@@ -14,7 +14,6 @@ $(document).ready(function () {
     event.preventDefault();
     let ratingStars = $("#rating input[name='star']:checked");
 
-   
     const newEventData = {
       title: title.val().trim(),
       date: date.val().trim(),
@@ -39,41 +38,37 @@ $(document).ready(function () {
     description.val("");
     location.val("");
     category.val("");
-    ratingStars.val("");
   });
 
-  
-
   function submitNewMemory(newEvent) {
-
     const formData = new FormData();
 
     Object.keys(newEvent).forEach(function (field) {
       const value = newEvent[field];
       formData.append(field, value);
-    })
-    
-    $.each($("input[type='file']")[0].files, function(i, file) {
-      formData.append('file[]', file);
+    });
+
+    $.each($("input[type='file']")[0].files, function (i, file) {
+      formData.append("file[]", file);
     });
 
     $.ajax({
-      type: 'POST',
-      url: '/api/newMemory',
+      type: "POST",
+      url: "/api/newMemory",
       cache: false,
       contentType: false,
       processData: false,
       data: formData,
-      success: function (result){
-          // window.location.href = "/memories";
+      success: function (result) {
+        window.location.href = "/memories";
       },
-      error: function (err){
+      error: function (err) {
         throw err;
-      }
+      },
     });
   }
 
-  // Update a given post, bring user to the blog page when done
+  // Update a given event, bring user to the blog page when done
   function updateMemory(memory) {
     $.ajax({
       method: "PUT",

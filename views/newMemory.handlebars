@@ -54,41 +54,33 @@
       <label for="description">Describe your memories here:</label>
       <textarea type="text" id="description" name="description"></textarea>
 
-    {{!-- </div>
-    <div class="column">
-      <div class="  buttons">
-        <a id="url" class="btn button is-primary">
-          Upload Images </a>
+      <div class="column">
+        <label for="file-uploader">Upload images</label>
+        <input type="file" id="file-uploader" class="cloudinary-button" multiple />
       </div>
-    </div> --}}
 
-    <div class="column">
-      <label for="file-uploader">Upload images</label>
-      <input type="file" id="file-uploader" class="cloudinary-button" multiple />
-    </div>
+      <div id="rating" class="stars">
+        <label for="ratings">Rate your memories:</label>
+        <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
+        <label class="star star-5" for="star-5"></label>
+        <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
+        <label class="star star-4" for="star-4"></label>
+        <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
+        <label class="star star-3" for="star-3"></label>
+        <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
+        <label class="star star-2" for="star-2"></label>
+        <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
+        <label class="star star-1" for="star-1"></label>
 
-    <div id="rating" class="stars">
-      <label for="ratings">Rate your memories:</label>
-      <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
-      <label class="star star-5" for="star-5"></label>
-      <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
-      <label class="star star-4" for="star-4"></label>
-      <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
-      <label class="star star-3" for="star-3"></label>
-      <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
-      <label class="star star-2" for="star-2"></label>
-      <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
-      <label class="star star-1" for="star-1"></label>
-
-    </div>
-
-    <div class="column">
-      <div class=" buttons">
-        <a id="saveNewMemories" class=" btn button is-primary">
-          Save New Memories
-        </a>
       </div>
-    </div>
+
+      <div class="column">
+        <div class=" buttons">
+          <a id="saveNewMemories" class=" btn button is-primary">
+            Save New Memories
+          </a>
+        </div>
+      </div>
   </form>
 
 </div>

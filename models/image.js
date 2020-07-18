@@ -1,23 +1,16 @@
 module.exports = function (sequelize, DataTypes) {
   const Image = sequelize.define("Image", {
-    name: {
+    url: {
       type: DataTypes.STRING,
       validate: {
         isUrl: true,
       },
     },
-    url: { type: DataTypes.STRING },
-   /*
-   caption: {
-      type: DataTypes.STRING,
+    name: { type: DataTypes.STRING },
+    eventId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [3, 140],
-      },
     },
-    altAttribute: {
-      type: DataTypes.STRING,
-    }, */
   });
 
   Image.associate = function (models) {
