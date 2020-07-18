@@ -54,12 +54,17 @@
       <label for="description">Describe your memories here:</label>
       <textarea type="text" id="description" name="description"></textarea>
 
-    </div>
+    {{!-- </div>
     <div class="column">
       <div class="  buttons">
         <a id="url" class="btn button is-primary">
           Upload Images </a>
       </div>
+    </div> --}}
+
+    <div class="column">
+      <label for="file-uploader">Upload images</label>
+      <input type="file" id="file-uploader" class="cloudinary-button" multiple />
     </div>
 
     <div id="rating" class="stars">

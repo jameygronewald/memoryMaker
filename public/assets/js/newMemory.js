@@ -45,13 +45,32 @@ $(document).ready(function () {
   
 
   function submitNewMemory(newEvent) {
-    $.post("/api/newMemory", newEvent)
-      .then(function (data) {
-        window.location.href = "/memories";
-      })
-      .catch(function (err) {
+
+    const formData = new FormData();
+
+    Object.keys(newEvent).forEach(function (field) {
+      const value = newEvent[field];
+      formData.append(field, value);
+    })
+    
+    $.each($("input[type='file']")[0].files, function(i, file) {
+      formData.append('file[]', file);
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: '/api/newMemory',
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: formData,
+      success: function (result){
+          // window.location.href = "/memories";
+      },
+      error: function (err){
         throw err;
-      });
+      }
+    });
   }
 
   // Update a given post, bring user to the blog page when done
