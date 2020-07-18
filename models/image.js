@@ -1,20 +1,15 @@
 module.exports = function (sequelize, DataTypes) {
   const Image = sequelize.define("Image", {
-    URL: {
+    url: {
       type: DataTypes.STRING,
       validate: {
         isUrl: true,
       },
     },
-    caption: {
-      type: DataTypes.STRING,
+    name: { type: DataTypes.STRING },
+    eventId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [3, 140],
-      },
-    },
-    altAttribute: {
-      type: DataTypes.STRING,
     },
   });
 
