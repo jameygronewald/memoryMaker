@@ -9,13 +9,12 @@ $(document).ready(function () {
   // const url = $("#url");
 
   newMemoryForm.on("click", function (event) {
-    // let eventId;
     // // Sets a flag for whether or not we're updating a post to be false initially
     // let updating = false;
     event.preventDefault();
     let ratingStars = $("#rating input[name='star']:checked");
 
-    console.log(ratingStars);
+   
     const newEventData = {
       title: title.val().trim(),
       date: date.val().trim(),
@@ -40,8 +39,10 @@ $(document).ready(function () {
     description.val("");
     location.val("");
     category.val("");
-    rating.val("");
+    ratingStars.val("");
   });
+
+  
 
   function submitNewMemory(newEvent) {
     $.post("/api/newMemory", newEvent)
