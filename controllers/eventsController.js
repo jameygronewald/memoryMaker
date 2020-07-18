@@ -46,13 +46,7 @@ router.post("/", (req, res) => {
 //         message: "Unable to create new alert.",
 //       });
 //     });
-  db.Event.create({
-    title: title,
-    date:date,
-    description:description,
-    location:location,
-    rating:rating
-})
+  db.Event.create(newEvent)
     .then((result) => {
       res.json({
         error: false,
