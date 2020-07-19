@@ -26,9 +26,7 @@ app.use(ViewsController);
 app.use(APIController);
 app.use("/users", UsersController);
 app.use("/api/newMemory", EventsController);
-app.use("/api/memories", MemoriesController);
-
-
+app.use("/memories", MemoriesController);
 
 db.sequelize
     .sync()

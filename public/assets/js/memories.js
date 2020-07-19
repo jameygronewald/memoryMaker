@@ -1,9 +1,8 @@
-$(document).ready(function() {
-    $.get('/api/memories')
-    .then(data => {
-        console.log(data);
+$(document).ready(() => {
+    const viewButton = $('.viewButton');
+    $(viewButton).on('click', function(event) {
+        event.preventDefault();
+        memoryId = $(this).attr('data-id');
+        window.location.href = `/memories/${memoryId}`;
     })
-    .catch(err => {
-        console.log(err)
-    })
-});
+})

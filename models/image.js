@@ -7,10 +7,10 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
     name: { type: DataTypes.STRING },
-    eventId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // eventId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
   });
 
   Image.associate = function (models) {

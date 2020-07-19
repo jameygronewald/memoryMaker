@@ -7,31 +7,32 @@
         <button class="button button is-link is-light" style="margin-top:10px;">Category</button>
         <a href="/login"></a><button class="button button is-link is-light" style="margin-top:10px;">Logout</button></a>
       </div>
-
   </div>
-<div class="columns">
-  <div class="column" style="border: 1px solid black; margin: 50px; text-align:center; background-color:#eef3fc;">
-    <div class="title">
-      Memories Feed
+  <div class="columns">
+    <div class="column" style="border: 1px solid black; margin: 50px; text-align:center; background-color:#eef3fc;">
+      <div class="title">
+        Memories Feed
+      </div>
+  <!-- Pass in data from server.js -->
+      <ul>
+        {{#each memory}}
+          <li>
+            <p><span class="label">Title:</span> {{title}}</p>
+            <p><span class="label">Date:</span> {{date}}</p>
+            <p><span class="label">Description:</span> {{description}}</p>
+            <p><span class="label">Rating:</span> {{rating}}</p>
+            <p><span class="label">Location:</span> {{location}}</p>
+            <p><span class="label">Image:</span> {{img}}</p>
+
+            <button data-id="{{this.id}}" class="viewButton">View Details</button>
+
+            <a href="/{{this.id}}">Update this memory</a>
+          </li>
+        {{/each}}
+      </ul>
     </div>
-<!-- Pass in data from server.js -->
-    <ul>
-      {{#each memory}}
-        <li>
-          <p><span class="label">Title:</span> {{this.title}}</p>
-          <p><span class="label">Date:</span> {{this.date}}</p>
-          <p><span class="label">Description:</span> {{this.description}}</p>
-          <p><span class="label">Rating:</span> {{this.rating}}</p>
-          <p><span class="label">Location:</span> {{this.location}}</p>
-          <p><span class="label">Image:</span> {{this.img}}</p>
-
-          <button data-id="{{this.id}}" class="delmemory">Delete</button>
-
-          <a href="/{{this.id}}">Update this memory</a>
-        </li>
-      {{/each}}
-    </ul>
   </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/memories.js"></script>
