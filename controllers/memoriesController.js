@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/id/:id", (req, res) => {
-  console.log(req.params)
+  console.log(req)
   db.Event.findOne({
     where: {
       id: req.params.id
@@ -53,6 +53,5 @@ router.get("/:username", (req, res) => {
       res.render("memories", memories);
     });
 });
-
 
 module.exports = router;

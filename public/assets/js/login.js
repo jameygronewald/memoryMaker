@@ -25,6 +25,7 @@ $(document).ready(function() {
         username: username,
         password: password
       }).then(res => {
+        localStorage.setItem('sessionToken', res.sessionToken);
         window.location.replace(`/memories/${username}`);
       }).catch(function(err) {
         console.log(err);

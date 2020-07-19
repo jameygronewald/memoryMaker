@@ -18,7 +18,10 @@ router.post('/login', (req, res) => {
     if (data === null) {
       throw error;
     }
-    res.send(data.dataValues.username);
+    const token = {
+      sessionToken: data.dataValues.username
+    }
+    res.send(token);
   }).catch(error => {
     res.status(500).send('Incorrect login')
   })
