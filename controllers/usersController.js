@@ -18,9 +18,9 @@ router.post("/", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      console.log("error occured", err);
       res.status(500).json({
-        error: true,
+        error: err.errors,
         data: null,
         message: "Unable to create new user.",
       });
