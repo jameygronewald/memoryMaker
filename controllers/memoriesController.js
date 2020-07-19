@@ -26,7 +26,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  console.log(req.params.id);
   db.Event.findOne({
     where: {
       id: req.params.id
