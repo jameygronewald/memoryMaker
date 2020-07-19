@@ -34,7 +34,7 @@ $(document).ready(function() {
     });
 
     function signUpUser(newUser) {
-      $.post('/users', newUser)
+      $.post('/users/signup', newUser)
         .then(() => {
           console.log('Added new user!')
           window.location.replace('/memories');

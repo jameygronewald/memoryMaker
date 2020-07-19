@@ -14,21 +14,21 @@ $(document).ready(function() {
         return;
       }
   
-      // loginUser(userData.username, userData.password);
+      loginUser(userData.username, userData.password);
       console.log(userData);
       usernameInput.val("");
       passwordInput.val("");
     });
   
     function loginUser(username, password) {
-      $.post("/users", {
+      $.post("/users/login", {
         username: username,
         password: password
-      }).then(function() {
-          window.location.replace("/memories");
-        }).catch(function(err) {
-          console.log(err);
-        });
+      }).then(res => {
+        window.location.replace(`/memories/${username}`);
+      }).catch(function(err) {
+        console.log(err);
+      });
     }
 });
   

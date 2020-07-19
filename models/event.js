@@ -42,7 +42,7 @@ module.exports = function (sequelize, DataTypes) {
     Event.belongsTo(models.Category, {
       foreignKey: {
         allowNull: false
-      },
+      }
     });
   };
   Event.associate = function (models) {
