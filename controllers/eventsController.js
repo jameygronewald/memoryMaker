@@ -10,7 +10,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// /api/alerts/
 router.post("/", async (req, res) => {
   console.log(req.body);
   const form = new multiparty.Form();
@@ -86,14 +85,12 @@ router.post("/", async (req, res) => {
   await Promise.all(uploadFilesRequests);
 });
 
-// /api/alerts/:id
 router.put("/:id", (req, res) => {
   res.json({
     message: "Put route",
   });
 });
 
-// /api/alerts/:id
 router.delete("/:id", (req, res) => {
   res.json({
     message: "Delete route",
