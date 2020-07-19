@@ -17,7 +17,7 @@ router.get("/newMemory", (req, res) => {
     res.render("newMemory");
 });
 
-router.get("/memory", (req, res) => {
-    res.render("memory");
-});
+// router.get("/memory", (req, res) => {
+//     res.render("memory");
+// });
 module.exports = router;
