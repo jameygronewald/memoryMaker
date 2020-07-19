@@ -8,6 +8,33 @@ router.get('/', (req, res) => {
   })
 })
 
+router.post('/login', (req, res) => {
+  db.User.findAll({
+    where: {
+      username: req.body.username,
+      password: req.body.password, 
+    },
+    include: [
+      {
+        model: db.Event
+      }
+    ]
+  }).then(data => {
+    res.json(data);
+  })
+})
+
+router.get('/:username', (req, res) => {
+  db.User.findAll({
+    where: {
+      username: req.params.username
+    }
+  }).then(data => {
+    
+    res.json(data);
+  })
+})
+
 router.post("/", (req, res) => {
   db.User.create(req.body)
     .then(result => {
