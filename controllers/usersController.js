@@ -8,6 +8,33 @@ router.get('/', (req, res) => {
   })
 })
 
+router.post('/login', (req, res) => {
+  db.User.findOne({
+    where: {
+      username: req.body.username,
+      password: req.body.password, 
+    }
+  }).then(data => {
+    if (data === null) {
+      throw error;
+    }
+    res.send(data.dataValues.username);
+  }).catch(error => {
+    res.status(500).send('Incorrect login')
+  })
+})
+
+router.get('/:username', (req, res) => {
+  db.User.findAll({
+    where: {
+      username: req.params.username
+    }
+  }).then(data => {
+    
+    res.json(data);
+  })
+})
+
 router.post("/", (req, res) => {
   db.User.create(req.body)
     .then(result => {

@@ -2,30 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-
-router.get("/", (req, res) => {
-  db.Event.findAll()
-    .then(memoryData => {
-      const memoryArray = memoryData.map(memory => {
-        const { id, title, date, description, location, rating } = memory.dataValues;
-        const memoryObject = {
-          id: id,
-          title: title,
-          date: date,
-          description: description,
-          location: location,
-          rating: rating
-        };
-        return memoryObject;
-      })
-      const memories = {
-        memory: memoryArray
-      };
-      res.render("memories", memories);
-    });
-});
-
-router.get("/:id", (req, res) => {
+router.get("/id/:id", (req, res) => {
+  console.log(req.params)
   db.Event.findOne({
     where: {
       id: req.params.id
@@ -50,6 +28,31 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.get("/:username", (req, res) => {
+  db.Event.findAll({
+    where: {
+      UserUsername: req.params.username
+    }
+  })
+    .then(memoryData => {
+      const memoryArray = memoryData.map(memory => {
+        const { id, title, date, description, location, rating } = memory.dataValues;
+        const memoryObject = {
+          id: id,
+          title: title,
+          date: date,
+          description: description,
+          location: location,
+          rating: rating
+        };
+        return memoryObject;
+      })
+      const memories = {
+        memory: memoryArray
+      };
+      res.render("memories", memories);
+    });
+});
 
 
 module.exports = router;

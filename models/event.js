@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [10, 3000],
+        len: [3, 3000],
       },
     },
     location: {
@@ -42,7 +42,7 @@ module.exports = function (sequelize, DataTypes) {
     Event.belongsTo(models.Category, {
       foreignKey: {
         allowNull: false
-      },
+      }
     });
   };
   Event.associate = function (models) {
