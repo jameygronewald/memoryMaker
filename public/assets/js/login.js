@@ -25,11 +25,7 @@ $(document).ready(function() {
         username: username,
         password: password
       }).then(res => {
-        console.log(res);
-        // if (res[0]) {
-        //   console.log("promise")
-        // }
-        // window.location.replace("/memories");
+        window.location.replace(`/memories/${username}`);
       }).catch(function(err) {
         console.log(err);
       });

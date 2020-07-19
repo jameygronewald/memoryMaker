@@ -3,10 +3,13 @@ const router = express.Router();
 const db = require("../models");
 
 
-router.get("/", (req, res) => {
-  db.Event.findAll()
+router.get("/:username", (req, res) => {
+  db.Event.findAll({
+    where: {
+      UserUsername: req.params.username
+    }
+  })
     .then(memoryData => {
-      console.log(memoryData);
       const memoryArray = memoryData.map(memory => {
         const { id, title, date, description, location, rating } = memory.dataValues;
         const memoryObject = {

@@ -9,18 +9,18 @@ router.get('/', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-  db.User.findAll({
+  db.User.findOne({
     where: {
       username: req.body.username,
       password: req.body.password, 
-    },
-    include: [
-      {
-        model: db.Event
-      }
-    ]
+    }
   }).then(data => {
-    res.json(data);
+    if (data === null) {
+      throw error;
+    }
+    res.send(data.dataValues.username);
+  }).catch(error => {
+    res.status(500).send('Incorrect login')
   })
 })
 
