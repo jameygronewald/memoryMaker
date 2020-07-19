@@ -20,6 +20,7 @@ $(document).ready(function() {
         return;
       };
       if (userData.password !== confirmPasswordInput.val().trim()) {
+        toastr.error("password not equal")
         return;
       };
       console.log(userData);
@@ -40,6 +41,17 @@ $(document).ready(function() {
         })
         .catch(err => {
           console.log(err)
+          const errorMsg = JSON.parse(err.responseText)
+          console.log(errorMsg)
+          errorMsg.error.forEach(e => {
+            if(e.path == "username") {
+              toastr.error("username must have minimum 5 chars")
+            }else if(e.path == "password") {
+              toastr.error("password must have minimum 8 chars")
+            }else if(e.path == "users.username") {
+              toastr.error("username already exists")
+            }
+          })
         });
     };
   
