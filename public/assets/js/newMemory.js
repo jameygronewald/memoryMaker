@@ -52,6 +52,21 @@ $(document).ready(function () {
       formData.append("file[]", file);
     });
 
+    // $.ajax({
+    //   type: "POST",
+    //   url: "/api/newMemory",
+    //   cache: false,
+    //   contentType: false,
+    //   processData: false,
+    //   data: formData,
+    //   success: function (result) {
+    //     window.location.href = "/memories";
+    //   },
+    //   error: function (err) {
+    //     // throw err;
+    //     alert("Please, make sure to fill out each field and choose rating for your memories!");
+    //   },
+    // });
     $.ajax({
       type: "POST",
       url: "/api/newMemory",
@@ -59,13 +74,13 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       data: formData,
-      success: function (result) {
-        window.location.href = "/memories";
-      },
-      error: function (err) {
-        throw err;
-      },
-    });
+    })
+      .then(function () {
+        window.location.replace("/memories");
+      })
+      .catch(function (err) {
+        alert("Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!");
+  });
   }
 
   // Update a given event, bring user to the blog page when done
