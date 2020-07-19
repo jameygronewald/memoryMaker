@@ -6,7 +6,7 @@ const db = require("../models");
 router.get("/", (req, res) => {
   db.Event.findAll()
     .then(memoryData => {
-      // console.log(memoryData);
+     console.log(memoryData);
       const memoryArray = memoryData.map(memory => {
         const { id, title, date, description, location, rating } = memory.dataValues;
         const memoryObject = {
