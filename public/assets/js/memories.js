@@ -3,6 +3,6 @@ $(document).ready(() => {
     $(viewButton).on('click', function(event) {
         event.preventDefault();
         memoryId = $(this).attr('data-id');
-        console.log(memoryId);
+        window.location.href = `/memories/${memoryId}`;
     })
 })
