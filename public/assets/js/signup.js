@@ -35,7 +35,9 @@ $(document).ready(function() {
     // this is what is controlling where the user goes after they create a new account. am i logged in when i register or do i need to sign in after registering?
     function signUpUser(newUser) {
       $.post('/users/signup', newUser)
-        .then(() => {
+        .then(res => {
+          localStorage.setItem('sessionToken', res.sessionToken);
+          document.cookie = `sessionToken=${res.sessionToken}`;
           const loginName = newUser.username;
           window.location.replace('/memories/' + loginName);
         })
