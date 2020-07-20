@@ -51,7 +51,6 @@ router.post("/", async (req, res) => {
     errorHandler
   );
 
-  console.log("cookies: ", req.cookies);
   const verifiedToken = await verifyToken(req.cookies.sessionToken);
 
   const event = await db.Event.create({
