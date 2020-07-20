@@ -12,7 +12,6 @@ cloudinary.config({
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
   const form = new multiparty.Form();
 
   const successHandler = (result) => {
@@ -62,9 +61,7 @@ router.post("/", async (req, res) => {
     CategoryId: category.id,
     UserUsername: verifiedToken.data,
   }).catch(errorHandler);
-
   console.log(event);
-
   try {
     const uploadFilesRequests = formData.files["file[]"].map(
       (file) =>
