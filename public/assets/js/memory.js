@@ -1,14 +1,15 @@
 $(document).ready(function () {
-    const idNum = window.location.pathname.split("/")[3];
+  const idNum = window.location.pathname.split("/")[3];
   const update = $("#update-memory");
-  function updateMemory(par) {
+  const del = $("#delete-memory");
 
+  function updateMemory(par) {
     $.ajax({
-      method: "PUT",
-      url: "/api/newMemory/" + idNum,
+      method: "GET",
+      url: "/newMemory/" + idNum,
       data: par,
     }).then(function () {
-      window.location.href = "/newMemory/"+ idNum;
+      window.location.href = "/newMemory/" + idNum;
     });
   }
   update.on("click", (event) => {
@@ -27,5 +28,22 @@ $(document).ready(function () {
       image: $("#image").text(),
     };
     updateMemory(updMemory);
+  });
+
+  function delMemory() {
+    const memoryId = event.target.getAttribute("data-id");
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/memories/id/" + memoryId,
+    }).then(function () {
+      alert("deleted");
+    });
+  }
+  del.on("click", (event) => {
+    event.preventDefault();
+    const memoryId = event.target.getAttribute("data-id");
+    // window.location.href = "/memories";
+    delMemory();
   });
 });
