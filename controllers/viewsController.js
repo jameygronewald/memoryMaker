@@ -13,11 +13,11 @@ router.get("/login", (req, res) => {
     res.render("login");
 });
 
-router.get("/newMemory", (req, res) => {
+router.get("/memories/newMemory", (req, res) => {
     res.render("newMemory");
 });
 
-// router.get("/memory", (req, res) => {
-//     res.render("memory");
-// });
+router.get("/newMemory/:id", (req, res) => {
+    res.render("newMemory");
+  });
 module.exports = router;
