@@ -42,7 +42,7 @@ $(document).ready(function() {
         })
         .catch(err => {
           const errorMsg = JSON.parse(err.responseText)
-          errorMsg.error.forEach(e => {
+          errorMsg.err.forEach(e => {
             if(e.path == "username") {
               toastr.error("username must have minimum 5 chars")
             }else if(e.path == "password") {
