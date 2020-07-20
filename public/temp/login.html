@@ -37,18 +37,28 @@
               </div>
               <div class="media-content column is-12-mobile">
                 <div class="content">
-                  <h2>Get Started Today!</h2>
+                  <h2>Login</h2>
                   <p>
-                    Spend less time searching for photos and more time making memories!
+                    Enter your username and password:
                   </p>
                 </div>
-                <nav class="level is-mobile">
-                  <!-- {{!-- <div class="level-left"></div> --}} -->
-                  <div class="level-right mt-4">
-                    <button class="button level-item is-info" id="sign-up">Sign-up</button>
-                    <button class="button level-item is-info" id="login">Login</button>
-                  </div>
-                </nav>
+                  <section>
+                      <div class="columns">
+                          <div class="column">
+                              <form id="loginForm">
+                      <label for="username">Username:</label><br>
+                      <input type="text" id="username" name="username"><br>
+                      <label for="password">Password:</label><br>
+                      <input type="password" id="password" name="password"><br>
+                      <input type="submit" id="signupSubmit" value="Log in to your account">
+                  </form>
+                  
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                  <script src="/assets/js/login.js"></script>
+                          </div>
+                      </div>
+                  </section>
+                  
               </div>
             </article>
           </div>
