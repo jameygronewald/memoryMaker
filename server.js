@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const PORT = process.env.PORT || 3000;
 const app = express();
 const db = require("./models");
+const cookieParser = require('cookie-parser');
 const ViewsController = require("./controllers/viewsController.js");
 const APIController = require("./controllers/apiController");
 const UsersController = require("./controllers/usersController");
@@ -14,6 +15,7 @@ const MemoriesController = require("./controllers/memoriesController")
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 // Handlebars setup
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/id/:id", (req, res) => {
-  console.log(req)
+  console.log(req.cookies);
   db.Event.findOne({
     where: {
       id: req.params.id

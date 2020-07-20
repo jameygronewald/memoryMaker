@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const generateToken = require('../util/tokenHelper')
 
 router.get('/', (req, res) => {
   db.User.findAll().then(data => {
@@ -18,11 +19,9 @@ router.post('/login', (req, res) => {
     if (data === null) {
       throw error;
     }
-    const token = {
-      sessionToken: data.dataValues.username
-    }
-    res.send(token);
+    res.send(generateToken(data.dataValues.username));
   }).catch(error => {
+    console.error(error);
     res.status(500).send('Incorrect login')
   })
 })
