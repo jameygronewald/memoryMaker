@@ -15,7 +15,6 @@ $(document).ready(function() {
       }
   
       loginUser(userData.username, userData.password);
-      console.log(userData);
       usernameInput.val("");
       passwordInput.val("");
     });
@@ -25,9 +24,11 @@ $(document).ready(function() {
         username: username,
         password: password
       }).then(res => {
+        if (res.status === 200) {
         localStorage.setItem('sessionToken', res.sessionToken);
         document.cookie = `sessionToken=${res.sessionToken}`;
         window.location.replace(`/memories/${username}`);
+        } throw err
       }).catch(function(err) {
         console.log(err);
       });

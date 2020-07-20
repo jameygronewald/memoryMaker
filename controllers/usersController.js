@@ -13,7 +13,7 @@ router.post('/login', (req, res) => {
     if (data === null) {
       throw error;
     }
-    res.send(generateToken(data.dataValues.username));
+    res.status(200).send(generateToken(data.dataValues.username));
   }).catch(error => {
     console.error(error);
     res.status(500).send('Incorrect login')
