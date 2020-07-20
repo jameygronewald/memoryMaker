@@ -15,7 +15,6 @@ $(document).ready(function() {
       }
   
       loginUser(userData.username, userData.password);
-      console.log(userData);
       usernameInput.val("");
       passwordInput.val("");
     });
@@ -28,9 +27,12 @@ $(document).ready(function() {
         localStorage.setItem('sessionToken', res.sessionToken);
         document.cookie = `sessionToken=${res.sessionToken}`;
         window.location.replace(`/memories/${username}`);
-      }).catch(function(err) {
-        console.log(err);
-      });
+      }).catch(err => {
+        const errorMsg = JSON.parse(err.responseText);
+          if (errorMsg) {
+            toastr.error("please enter in a valid credentials")
+          }
+        })
     }
 });
   

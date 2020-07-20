@@ -23,7 +23,6 @@ $(document).ready(function() {
         toastr.error("password not equal")
         return;
       };
-      console.log(userData);
       signUpUser(userData);
       firstNameInput.val('');
       lastNameInput.val('');
@@ -33,16 +32,17 @@ $(document).ready(function() {
       confirmPasswordInput.val('');
     });
 
+    // this is what is controlling where the user goes after they create a new account. am i logged in when i register or do i need to sign in after registering?
     function signUpUser(newUser) {
       $.post('/users/signup', newUser)
-        .then(() => {
-          console.log('Added new user!')
-          window.location.replace('/memories');
+        .then(res => {
+          localStorage.setItem('sessionToken', res.sessionToken);
+          document.cookie = `sessionToken=${res.sessionToken}`;
+          const loginName = newUser.username;
+          window.location.replace('/memories/' + loginName);
         })
         .catch(err => {
-          console.log(err)
           const errorMsg = JSON.parse(err.responseText)
-          console.log(errorMsg)
           errorMsg.error.forEach(e => {
             if(e.path == "username") {
               toastr.error("username must have minimum 5 chars")
@@ -50,13 +50,14 @@ $(document).ready(function() {
               toastr.error("password must have minimum 8 chars")
             }else if(e.path == "users.username") {
               toastr.error("username already exists")
+            }else if(e.path == "email") {
+              toastr.error("email must be a valid email address")
+            }else if(e.path == "firstName") {
+              toastr.error("please enter a first name between 1 and 140 characters")
+            }else if(e.path == "lastName") {
+              toastr.error("please enter a last name between 1 and 140 characters")
             }
           })
         });
     };
-  
-    // function handleLoginErr(err) {
-    //   $('').text(err.responseJSON);
-    //   $('').fadeIn(500);
-    // }
 }); 
