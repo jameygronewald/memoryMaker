@@ -3,7 +3,8 @@ $(document).ready(function () {
   const update = $("#update-memory");
   const del = $("#delete-memory");
 
-  function updateMemory(par) {
+
+  function updateMemory(par, eventId) {
     $.ajax({
       method: "GET",
       url: "/newMemory/" + idNum,
@@ -17,7 +18,7 @@ $(document).ready(function () {
     const memoryId = event.target.getAttribute("data-id");
 
     console.log(typeof memoryId);
-    var updMemory = {
+    const updMemory = {
       id: parseInt(memoryId),
       title: $("#title").text(),
       date: $("#date").text(),
@@ -27,7 +28,8 @@ $(document).ready(function () {
       category: $("#category").text(),
       image: $("#image").text(),
     };
-    updateMemory(updMemory);
+
+    updateMemory(updMemory, updMemory.id);
   });
 
   function delMemory() {
