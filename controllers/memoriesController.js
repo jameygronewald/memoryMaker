@@ -38,21 +38,29 @@ router.get("/:username", (req, res) => {
   db.Event.findAll({
     where: {
       UserUsername: req.params.username
-    }
+    },
+    include: [
+      {
+        model: db.Image,
+      }
+    ]
   })
     .then(memoryData => {
       const memoryArray = memoryData.map(memory => {
-        const { id, title, date, description, location, rating } = memory.dataValues;
+        const { id, title, date, description, location, rating, UserUsername, Images} = memory.dataValues;
         const memoryObject = {
           id: id,
           title: title,
           date: date,
           description: description,
           location: location,
-          rating: rating
+          rating: rating,
+          username: UserUsername,
+          imageArray: Images
         };
         return memoryObject;
       })
+      console.log(memoryArray);
       const memories = {
         memory: memoryArray
       };
