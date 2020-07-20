@@ -36,7 +36,7 @@ $(document).ready(function() {
     function signUpUser(newUser) {
       $.post('/users/signup', newUser)
         .then(() => {
-          var loginName = newUser.username;
+          const loginName = newUser.username;
           window.location.replace('/memories/' + loginName);
         })
         .catch(err => {
