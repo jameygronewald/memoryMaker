@@ -11,12 +11,11 @@ router.post('/login', (req, res) => {
     }
   }).then(data => {
     if (data === null) {
-      throw error;
+      throw new Error('username or password is incorrect');
     }
     res.send(generateToken(data.dataValues.username));
   }).catch(error => {
-    console.error(error);
-    res.status(500).send('Incorrect login')
+    res.status(500).json(error.message);
   })
 })
 
