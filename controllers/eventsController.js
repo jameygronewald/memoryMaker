@@ -3,7 +3,7 @@ const multiparty = require("multiparty");
 const cloudinary = require("cloudinary").v2;
 const router = express.Router();
 const db = require("../models");
-const { verifyToken } = require('../util/tokenHelper');
+const { verifyToken } = require("../util/tokenHelper");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -51,9 +51,9 @@ router.post("/", async (req, res) => {
     errorHandler
   );
 
-  console.log('cookies: ', req.cookies);
+  console.log("cookies: ", req.cookies);
   const verifiedToken = await verifyToken(req.cookies.sessionToken);
-    
+
   const event = await db.Event.create({
     title: eventData.title,
     date: eventData.date,
@@ -61,7 +61,7 @@ router.post("/", async (req, res) => {
     location: eventData.location,
     rating: eventData.rating,
     CategoryId: category.id,
-    UserUsername: verifiedToken.data
+    UserUsername: verifiedToken.data,
   }).catch(errorHandler);
 
   console.log(event);
@@ -71,7 +71,7 @@ router.post("/", async (req, res) => {
       (file) =>
         new Promise((resolve, reject) => {
           const { path, originalFilename } = file;
-  
+
           cloudinary.uploader.upload(
             path,
             {}, // directory and tags are optional
@@ -89,16 +89,38 @@ router.post("/", async (req, res) => {
         })
     );
     await Promise.all(uploadFilesRequests);
-  } catch(error) {
-    console.error('Unable to upload image.')
+  } catch (error) {
+    console.error("Unable to upload image.");
   }
   res.status(200).send(event);
 });
 
 router.put("/:id", (req, res) => {
-  res.json({
-    message: "Put route",
-  });
+  console.log(req.body);
+
+  db.Event.findOne({
+    where: {
+      id: parseInt(req.params.id),
+    },
+  })
+    .then((response) => {
+      console.log(response.dataValues.title);
+
+      const {
+        id,
+        title,
+        date,
+        description,
+        location,
+        rating,
+      } = response.dataValues;
+      console.log({ title: title });
+
+      res.render("newMemory", { title: title });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 router.delete("/:id", (req, res) => {

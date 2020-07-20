@@ -10,20 +10,20 @@
 <section>
   <div class="columns">
     <div class="column" style="border: 1px solid black; text-align:center; margin: 50px auto; background-color:lightgrey;">
-      <ul>
+     <ul>
         {{#each memory}}
-          <li>
-            <p><span class="label">Title:</span> {{title}}</p>
-            <p><span class="label">Date:</span> {{date}}</p>
-            <p><span class="label">Description:</span> {{description}}</p>
-            <p><span class="label">Rating:</span> {{rating}}</p>
-            <p><span class="label">Location:</span> {{location}}</p>
-            <p><span class="label">Image:</span> {{img}}</p>
+        <li>
+          <p><span id="title" class="label">Title:</span> {{title}}</p>
+          <p><span id="date" class="label">Date:</span> {{date}}</p>
+          <p><span id="description" class="label">Description:</span> {{description}}</p>
+          <p><span id="rating" class="label">Rating:</span> {{rating}}</p>
+          <p><span id="location" class="label">Location:</span> {{location}}</p>
+          <p><span id="image" class="label">Image:</span> {{img}}</p>
 
-            <button data-id="{{this.id}}" class="delmemory">Delete</button>
+          <button data-id="{{this.id}}" class="delmemory">Delete</button>
 
-            <a href="/{{this.id}}">Update this memory</a>
-          </li>
+          <button  id="update-memory" data-id="{{this.id}}">Update this memory</button>
+        </li>
         {{/each}}
       </ul>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
