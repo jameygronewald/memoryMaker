@@ -23,7 +23,6 @@ $(document).ready(function() {
         toastr.error("password not equal")
         return;
       };
-      console.log(userData);
       signUpUser(userData);
       firstNameInput.val('');
       lastNameInput.val('');
@@ -37,15 +36,11 @@ $(document).ready(function() {
     function signUpUser(newUser) {
       $.post('/users/signup', newUser)
         .then(() => {
-          console.log('Added new user!')
-          console.log(newUser);
           var loginName = newUser.username;
           window.location.replace('/memories/' + loginName);
         })
         .catch(err => {
-          console.log(err)
           const errorMsg = JSON.parse(err.responseText)
-          console.log(errorMsg)
           errorMsg.error.forEach(e => {
             if(e.path == "username") {
               toastr.error("username must have minimum 5 chars")
@@ -53,13 +48,10 @@ $(document).ready(function() {
               toastr.error("password must have minimum 8 chars")
             }else if(e.path == "users.username") {
               toastr.error("username already exists")
+            }else if(e.path == "email") {
+              toastr.error("email must be a valid email address")
             }
           })
         });
     };
-  
-    // function handleLoginErr(err) {
-    //   $('').text(err.responseJSON);
-    //   $('').fadeIn(500);
-    // }
 }); 
