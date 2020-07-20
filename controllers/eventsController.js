@@ -96,27 +96,22 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", (req, res) => {
   console.log(req.body);
-
-  db.Event.findOne({
+console.log(   req.body.title,
+  );
+  db.Event.update({
+    title: req.body.title,
+    date: req.body.date,
+    description:req.body.description,
+    location: req.body.location,
+    rating: req.body.rating,
+    CategoryId: req.body.id
+  },{
     where: {
       id: parseInt(req.params.id),
     },
-    
   })
     .then((response) => {
-      console.log(response.dataValues);
-
-      const {
-        id,
-        title,
-        date,
-        description,
-        location,
-        rating,
-      } = response.dataValues;
-      console.log({ title: title });
-
-      res.render("newMemory",  {description} );
+      res.json(response)
     })
     .catch((err) => {
       console.log(err);
@@ -124,9 +119,16 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  res.json({
-    message: "Delete route",
+  db.Event.destroy({
+    where: {
+      id: parseInt(req.params.id),
+    },
+  }).then ((response)=>{
+    res.json(response)
+  }).catch((err) => {
+    console.log(err);
   });
+  
 });
 
 module.exports = router;
