@@ -1,13 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-const generateToken = require('../util/tokenHelper')
-
-router.get('/', (req, res) => {
-  db.User.findAll().then(data => {
-    res.json(data);
-  })
-})
+const { generateToken, verifyToken } = require('../util/tokenHelper');
 
 router.post('/login', (req, res) => {
   db.User.findOne({
@@ -26,18 +20,7 @@ router.post('/login', (req, res) => {
   })
 })
 
-router.get('/:username', (req, res) => {
-  db.User.findAll({
-    where: {
-      username: req.params.username
-    }
-  }).then(data => {
-    
-    res.json(data);
-  })
-})
-
-router.post("/", (req, res) => {
+router.post("/signup", (req, res) => {
   db.User.create(req.body)
     .then(result => {
       res.json({

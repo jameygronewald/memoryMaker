@@ -3,6 +3,7 @@ $(document).ready(() => {
     $(logoutButton).on('click', function(event) {
         event.preventDefault();
         localStorage.clear();
+        document.cookie = 'sessionToken='
         window.location.href = '/';
     })
     const viewButton = $('.viewButton');

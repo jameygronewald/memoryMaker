@@ -13,4 +13,8 @@ const signjwt = (username) => {
     }, 'ferial', { expiresIn: '1h'})
 };
 
-module.exports = generateToken;
+const verifyToken = (tokenValue) => {
+    return jwt.verify(tokenValue, 'ferial');
+};
+
+module.exports = {generateToken, verifyToken};
