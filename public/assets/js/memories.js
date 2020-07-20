@@ -1,8 +1,15 @@
 $(document).ready(() => {
+    const logoutButton = $('#logoutButton');
+    $(logoutButton).on('click', function(event) {
+        event.preventDefault();
+        localStorage.clear();
+        document.cookie = 'sessionToken='
+        window.location.href = '/';
+    })
     const viewButton = $('.viewButton');
     $(viewButton).on('click', function(event) {
         event.preventDefault();
-        memoryId = $(this).attr('data-id');
+        const memoryId = $(this).attr('data-id');
         window.location.href = `/memories/id/${memoryId}`;
     })
 })
