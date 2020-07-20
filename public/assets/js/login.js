@@ -26,7 +26,7 @@ $(document).ready(function() {
       }).then(res => {
         localStorage.setItem('sessionToken', res.sessionToken);
         document.cookie = `sessionToken=${res.sessionToken}`;
-        window.location.replace(`/memories/${username}`);
+        window.location.replace(`/memories`);
       }).catch(err => {
         const errorMsg = JSON.parse(err.responseText);
           if (errorMsg) {

@@ -76,7 +76,7 @@ $(document).ready(function () {
       data: formData,
     })
       .then(res => {
-        window.location.replace(`/memories/${res.UserUsername}`);
+        window.location.replace(`/memories`);
       })
       .catch(function (err) {
         alert("Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!");

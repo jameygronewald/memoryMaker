@@ -38,8 +38,7 @@ $(document).ready(function() {
         .then(res => {
           localStorage.setItem('sessionToken', res.sessionToken);
           document.cookie = `sessionToken=${res.sessionToken}`;
-          const loginName = newUser.username;
-          window.location.replace('/memories/' + loginName);
+          window.location.replace('/memories');
         })
         .catch(err => {
           const errorMsg = JSON.parse(err.responseText)
