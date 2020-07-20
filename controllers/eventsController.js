@@ -101,9 +101,10 @@ router.put("/:id", (req, res) => {
     where: {
       id: parseInt(req.params.id),
     },
+    
   })
     .then((response) => {
-      console.log(response.dataValues.title);
+      console.log(response.dataValues);
 
       const {
         id,
@@ -115,7 +116,7 @@ router.put("/:id", (req, res) => {
       } = response.dataValues;
       console.log({ title: title });
 
-      res.render("newMemory", { title: title });
+      res.render("newMemory",  {description} );
     })
     .catch((err) => {
       console.log(err);

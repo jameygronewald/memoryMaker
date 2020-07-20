@@ -9,8 +9,9 @@
 </section>
 <section>
   <div class="columns">
-    <div class="column" style="border: 1px solid black; text-align:center; margin: 50px auto; background-color:lightgrey;">
-     <ul>
+    <div class="column"
+      style="border: 1px solid black; text-align:center; margin: 50px auto; background-color:lightgrey;">
+      <ul>
         {{#each memory}}
         <li>
           <p><span id="title" class="label">Title:</span> {{title}}</p>
@@ -18,16 +19,17 @@
           <p><span id="description" class="label">Description:</span> {{description}}</p>
           <p><span id="rating" class="label">Rating:</span> {{rating}}</p>
           <p><span id="location" class="label">Location:</span> {{location}}</p>
+          <p><span id="category" class="label">Category:</span> {{category}}</p>
           <p><span id="image" class="label">Image:</span> {{img}}</p>
 
           <button data-id="{{this.id}}" class="delmemory">Delete</button>
 
-          <button  id="update-memory" data-id="{{this.id}}">Update this memory</button>
+          <button id="update-memory" data-id="{{this.id}}">Update this memory</button>
         </li>
         {{/each}}
       </ul>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/assets/js/memory.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="/assets/js/memory.js"></script>
     </div>
-    </div>
+  </div>
 </section>

@@ -23,6 +23,7 @@ $(document).ready(function () {
       description: $("#description").text(),
       rating: $("#rating").text(),
       location: $("#location").text(),
+      category: $("#category").text(),
       image: $("#image").text(),
     };
     updateMemory(updMemory);
