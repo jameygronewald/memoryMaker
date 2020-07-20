@@ -33,11 +33,14 @@ $(document).ready(function() {
       confirmPasswordInput.val('');
     });
 
+    // this is what is controlling where the user goes after they create a new account. am i logged in when i register or do i need to sign in after registering?
     function signUpUser(newUser) {
       $.post('/users/signup', newUser)
         .then(() => {
           console.log('Added new user!')
-          window.location.replace('/memories');
+          console.log(newUser);
+          var loginName = newUser.username;
+          window.location.replace('/memories/' + loginName);
         })
         .catch(err => {
           console.log(err)
