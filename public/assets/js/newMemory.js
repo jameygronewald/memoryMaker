@@ -6,6 +6,7 @@ $(document).ready(function () {
   const location = $("#location");
   const rating = $("#rating");
   const category = $("#category");
+  
   // const url = $("#url");
 
   newMemoryForm.on("click", function (event) {
@@ -13,7 +14,7 @@ $(document).ready(function () {
     // let updating = false;
     event.preventDefault();
     let ratingStars = $("#rating input[name='star']:checked");
-
+    const memoryId = event.target.getAttribute("data-id");
     const newEventData = {
       title: title.val().trim(),
       date: date.val().trim(),
@@ -22,17 +23,13 @@ $(document).ready(function () {
       category: category.val().trim(),
       rating: ratingStars.val(),
     };
-    console.log(newEventData);
     // If we're updating a memory run updateMemory to update a memory
     // Otherwise run submitmemory to create a whole new event
-    // if (updating) {
-    //   newEventData.id = eventId;
-    //   updateEvent(newEventData);
-    // } else {
-    //   submitNewMemory(newEventData);
-    // }
-    submitNewMemory(newEventData);
-    // updateMemory(newEventData)
+    if (!memoryId) {
+      submitNewMemory(newEventData);
+    } else {
+      updateMemory(newEventData);
+    }
 
     title.val("");
     date.val("");
@@ -94,7 +91,7 @@ $(document).ready(function () {
       url: "/api/newMemory/"+memoryId,
       data: memory,
     }).then(function () {
-      // window.location.href = "/memories";
+      window.location.replace("/memories");
     });
   }
 });

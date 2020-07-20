@@ -44,33 +44,4 @@ router.get("/newMemory/:id", (req, res) => {
     });
 });
 
-router.get("/newMemory/:id", (req, res) => {
-  console.log(req.body);
-
-  //   db.Event.findOne({
-  //     where: {
-  //       id: parseInt(req.params.id),
-  //     },include: {
-  //       model: db.Category,
-  //     }
-  //   })
-  //     .then((response) => {
-  //       console.log(response);
-  //       const {
-  //         id,
-  //         title,
-  //         date,
-  //         description,
-  //         location,
-  //         rating,
-  //       } = response.dataValues;
-  //       console.log(response.dataValues);
-
-  //       res.render("newMemory", response.dataValues);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-});
-
 module.exports = router;
