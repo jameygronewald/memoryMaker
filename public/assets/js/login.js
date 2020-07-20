@@ -24,14 +24,15 @@ $(document).ready(function() {
         username: username,
         password: password
       }).then(res => {
-        if (res.status === 200) {
         localStorage.setItem('sessionToken', res.sessionToken);
         document.cookie = `sessionToken=${res.sessionToken}`;
         window.location.replace(`/memories/${username}`);
-        } throw err
-      }).catch(function(err) {
-        console.log(err);
-      });
+      }).catch(err => {
+        const errorMsg = JSON.parse(err.responseText);
+          if (errorMsg) {
+            toastr.error("please enter in a valid credentials")
+          }
+        })
     }
 });
   
