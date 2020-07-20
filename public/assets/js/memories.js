@@ -6,6 +6,11 @@ $(document).ready(() => {
         document.cookie = 'sessionToken='
         window.location.href = '/';
     })
+    const createButton = $('#createButton');
+    $(createButton).on('click', function(event) {
+        event.preventDefault();
+        window.location.href = '/newMemory';
+    })
     const viewButton = $('.viewButton');
     $(viewButton).on('click', function(event) {
         event.preventDefault();

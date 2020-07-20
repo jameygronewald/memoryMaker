@@ -39,7 +39,7 @@ $(document).ready(function() {
         .then(() => {
           console.log('Added new user!')
           console.log(newUser);
-          var loginName = newUser.username;
+          const loginName = newUser.username;
           window.location.replace('/memories/' + loginName);
         })
         .catch(err => {
