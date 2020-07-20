@@ -37,18 +37,30 @@
               </div>
               <div class="media-content column is-12-mobile">
                 <div class="content">
-                  <h2>Get Started Today!</h2>
+                  <h2>Sign-up Form</h2>
                   <p>
-                    Spend less time searching for photos and more time making memories!
+                    Fill out the following information:
                   </p>
                 </div>
-                <nav class="level is-mobile">
-                  <!-- {{!-- <div class="level-left"></div> --}} -->
-                  <div class="level-right mt-4">
-                    <button class="button level-item is-info" id="sign-up">Sign-up</button>
-                    <button class="button level-item is-info" id="login">Login</button>
-                  </div>
-                </nav>
+                <div class="columns">
+                    <div class="column">
+                        <form id="signupForm">
+                    <label for="firstName">First name:</label><br> 
+                    <input type="text" id="firstName" name="firstName"><br>
+                    <label for="lastName">Last name:</label><br>
+                    <input type="text" id="lastName" name="lastName"><br>
+                    <label for="newEmail">Email:</label><br>
+                    <input type="text" id="newEmail" name="newEmail"><br>
+                    <label for="newUsername">Create a username:</label><br>
+                    <input type="text" id="newUsername" name="newUsername"><br>
+                    <label for="newPassword">Create your password:</label><br>
+                    <input type="password" id="newPassword" name="newPassword"><br>
+                    <label for="confirmPassword">Re-enter password to confirm:</label><br>
+                    <input type="password" id="confirmPassword" name="confirmPassword"><br>
+                    <input type="submit" id="signupSubmit" value="Sign up">
+                </form>
+                    </div>
+                </div>
               </div>
             </article>
           </div>
