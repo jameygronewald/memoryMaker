@@ -4,8 +4,8 @@ const db = require("../models");
 const { verifyToken } = require('../util/tokenHelper');
 
 router.get("/id/:id", (req, res) => {
-  try {
-    verifyToken(req.cookies.sessionToken);
+  // try {
+  //   verifyToken(req.cookies.sessionToken);
     db.Event.findOne({
       where: {
         id: req.params.id
@@ -28,10 +28,10 @@ router.get("/id/:id", (req, res) => {
         };
         res.render("memory", selectedMemory);
       });
-    } catch(error) {
-      console.error(error)
-      res.status(401).redirect('/');
-    }
+    // } catch(error) {
+    //   console.error(error)
+    //   res.status(401).redirect('/');
+    // }
 });
 
 router.get("/:username", (req, res) => {
