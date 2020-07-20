@@ -50,6 +50,10 @@ $(document).ready(function() {
               toastr.error("username already exists")
             }else if(e.path == "email") {
               toastr.error("email must be a valid email address")
+            }else if(e.path == "firstName") {
+              toastr.error("please enter a first name between 1 and 140 characters")
+            }else if(e.path == "lastName") {
+              toastr.error("please enter a last name between 1 and 140 characters")
             }
           })
         });
