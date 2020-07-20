@@ -62,7 +62,6 @@ router.get("/", (req, res) => {
           };
           return memoryObject;
         })
-        console.log(memoryArray);
         const memories = {
           memory: memoryArray
         };

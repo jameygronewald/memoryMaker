@@ -31,8 +31,8 @@ $(document).ready(function () {
     // } else {
     //   submitNewMemory(newEventData);
     // }
-    // submitNewMemory(newEventData);
-    updateMemory(newEventData)
+    submitNewMemory(newEventData);
+    // updateMemory(newEventData)
 
     title.val("");
     date.val("");
