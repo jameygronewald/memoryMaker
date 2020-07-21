@@ -34,10 +34,10 @@ $(document).ready(function () {
     category.val("");
   });
 
-  const submitNewMemory = newEvent => {
+  const submitNewMemory = (newEvent) => {
     const formData = new FormData();
 
-    Object.keys(newEvent).forEach(field => {
+    Object.keys(newEvent).forEach((field) => {
       const value = newEvent[field];
       formData.append(field, value);
     });
@@ -54,24 +54,30 @@ $(document).ready(function () {
       processData: false,
       data: formData,
     })
-      .then(res => {
+      .then((res) => {
         toastr.success("Memory created!");
-        setTimeout(() => window.location.replace(`/memories`),2000);
+        setTimeout(() => window.location.replace(`/memories`), 2000);
       })
       .catch(() => {
-        alert("Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!");
+        toastr.error(
+          "Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!"
+        );
       });
   };
   // Update a given event, bring user to the blog page when done
-  const updateMemory = memory => {
+  const updateMemory = (memory) => {
     const memoryId = event.target.getAttribute("data-id");
     $.ajax({
       method: "PUT",
-      url: "/api/newMemory/"+memoryId,
+      url: "/api/newMemory/" + memoryId,
       data: memory,
     }).then(() => {
-      toastr.success("Memory has been updated")
-      setTimeout(() => window.location.replace("/memories"),2000);
+      toastr.success("Memory has been updated");
+      setTimeout(() => window.location.replace("/memories"), 2000);
+    }).catch(() => {
+      toastr.error(
+        "Please, make sure to fill out each field with at least 3 characters and choose ratingto update your memories!"
+      );
     });
   };
 });
