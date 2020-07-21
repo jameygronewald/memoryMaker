@@ -73,4 +73,17 @@ router.get("/", (req, res) => {
   }
 });
 
+router.delete("/id/:id", (req, res) => {
+  db.Event.destroy({
+    where: {
+      id: parseInt(req.params.id),
+    },
+  }).then ((response)=>{
+    res.json(response)
+  }).catch((err) => {
+    console.log(err);
+  });
+  
+});
+
 module.exports = router;
