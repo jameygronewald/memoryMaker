@@ -20,7 +20,7 @@ $(document).ready(function() {
         return;
       };
       if (userData.password !== confirmPasswordInput.val().trim()) {
-        toastr.error("password not equal")
+        toastr.error("Password confirmation must match")
         return;
       };
       signUpUser(userData);
@@ -32,7 +32,6 @@ $(document).ready(function() {
       confirmPasswordInput.val('');
     });
 
-    // this is what is controlling where the user goes after they create a new account. am i logged in when i register or do i need to sign in after registering?
     function signUpUser(newUser) {
       $.post('/users/signup', newUser)
         .then(res => {
