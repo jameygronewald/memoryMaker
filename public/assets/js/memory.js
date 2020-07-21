@@ -4,20 +4,16 @@ $(document).ready(function () {
   const del = $("#delete-memory");
 
 
-  function updateMemory(par, eventId) {
+  function updateMemory(par) {
     $.ajax({
       method: "GET",
       url: "/newMemory/" + idNum,
       data: par,
-    }).then(function () {
-      window.location.href = "/newMemory/" + idNum;
-    });
+    }).then(() => window.location.href = "/newMemory/" + idNum);
   }
   update.on("click", (event) => {
     event.preventDefault();
     const memoryId = event.target.getAttribute("data-id");
-
-    console.log(typeof memoryId);
     const updMemory = {
       id: parseInt(memoryId),
       title: $("#title").text(),
@@ -28,23 +24,21 @@ $(document).ready(function () {
       category: $("#category").text(),
       image: $("#image").text(),
     };
-
-    updateMemory(updMemory, updMemory.id);
+    updateMemory(updMemory);
   });
 
-  function delMemory(event) {
+  const delMemory = event => { 
     const memoryId = event.target.getAttribute("data-id");
     $.ajax({
       method: "DELETE",
       url: "/memories/id/" + memoryId,
-    }).then(function () {
+    }).then(result => {
       alert("deleted");
-    window.location.href = "/memories";
+      window.location.href = "/memories";
     });
   }
   del.on("click", (event) => {
     event.preventDefault();
-    const memoryId = event.target.getAttribute("data-id");
     delMemory(event);
   });
 });

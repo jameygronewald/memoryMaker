@@ -74,16 +74,22 @@ router.get("/", (req, res) => {
 });
 
 router.delete("/id/:id", (req, res) => {
-  db.Event.destroy({
-    where: {
-      id: parseInt(req.params.id),
-    },
-  }).then ((response)=>{
-    res.json(response)
-  }).catch((err) => {
-    console.log(err);
-  });
-  
+  try {
+    const verifiedToken = verifyToken(req.cookies.sessionToken);
+    db.Event.destroy({
+      where: {
+        id: parseInt(req.params.id),
+        UserUsername: verifiedToken.data
+      },
+    }).then ((response)=>{
+      res.json(response);
+    }).catch((err) => {
+      console.log(err);
+    });
+  } catch(error) {
+    console.error(error)
+    res.status(401).redirect('/');
+  }
 });
 
 module.exports = router;
