@@ -32,20 +32,19 @@ $(document).ready(function () {
     updateMemory(updMemory, updMemory.id);
   });
 
-  function delMemory() {
+  function delMemory(event) {
     const memoryId = event.target.getAttribute("data-id");
-
     $.ajax({
       method: "DELETE",
-      url: "/api/memories/id/" + memoryId,
+      url: "/memories/id/" + memoryId,
     }).then(function () {
       alert("deleted");
+    window.location.href = "/memories";
     });
   }
   del.on("click", (event) => {
     event.preventDefault();
     const memoryId = event.target.getAttribute("data-id");
-    // window.location.href = "/memories";
-    delMemory();
+    delMemory(event);
   });
 });
