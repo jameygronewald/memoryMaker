@@ -55,7 +55,8 @@ $(document).ready(function () {
       data: formData,
     })
       .then(res => {
-        window.location.replace(`/memories`);
+        toastr.success("Memory created!");
+        setTimeout(() => window.location.replace(`/memories`),2000);
       })
       .catch(() => {
         alert("Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!");
