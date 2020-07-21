@@ -29,6 +29,11 @@ body {
   text-shadow: 2px 2px rgb(64, 64, 64);
 }
 
+.thumbnail img {
+  height: 175px;
+  width: 225px;
+}
+
 .image img {
   border: dashed black;
   border-radius: 5px;
