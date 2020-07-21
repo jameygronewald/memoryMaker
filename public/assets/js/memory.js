@@ -43,4 +43,19 @@ $(document).ready(function () {
     event.preventDefault();
     delMemory(event);
   });
+
+ 
+   
+  const arrayOfDates = [];
+  $(".singledate").each(function (index) {
+    console.log(
+      index + ": " + $(this).text().split(/\s+/).slice(1, 4).join(" ")
+    );
+    arrayOfDates.push($(this).text().split(/\s+/).slice(1, 4).join(" "));
+  });
+  console.log(arrayOfDates);
+  let timeDisplayed = document.querySelectorAll(".singledate");
+  for (i = 0; i < arrayOfDates.length; i++) {
+    timeDisplayed[i].innerHTML = arrayOfDates[i];
+  }
 });
