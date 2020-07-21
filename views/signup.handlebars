@@ -2,33 +2,52 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title has-text-centered has-text-weight-bold is-2">
-        Sign up
+        Welcome to Memory Maker!
       </h1>
     </div>
   </div>
 </section>
-<section>
-<div class="columns">
-    <div class="column" style="border: 1px solid black; text-align:center; margin: 50px auto; background-color:lightgrey;">
-        <form id="signupForm">
-    <label for="firstName">First name:</label><br> 
-    <input type="text" id="firstName" name="firstName"><br>
-    <label for="lastName">Last name:</label><br>
-    <input type="text" id="lastName" name="lastName"><br>
-    <label for="newEmail">Email:</label><br>
-    <input type="text" id="newEmail" name="newEmail"><br>
-    <label for="newUsername">Create a username:</label><br>
-    <input type="text" id="newUsername" name="newUsername"><br>
-    <label for="newPassword">Create your password:</label><br>
-    <input type="password" id="newPassword" name="newPassword"><br>
-    <label for="confirmPassword">Re-enter password to confirm:</label><br>
-    <input type="password" id="confirmPassword" name="confirmPassword"><br>
-    <input type="submit" id="signupSubmit" value="Sign up">
-</form>
-    </div>
-</div>
 
-</section>
+<div class="container is-fluid main-bg">
+  <div class="columns is-mobile is-centered mt-6">
+    <div class="box column is-mobile is-two-thirds-tablet is-half-desktop">
+      <article class="media columns is-multiline is-mobile is-centered">
+        <div class="media-left column is-12-mobile is-4-tablet mx-0">
+          <figure class="image">
+            <img src="../assets/images/memories-icon.jpg" style="width:200px; margin: auto" alt="Sweet Memories Icon">
+          </figure>
+        </div>
+        <div class="media-content column is-12-mobile">
+          <div class="content">
+            <h2>Sign-up Form</h2>
+            <p>
+              Fill out the following information:
+            </p>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <form id="signupForm">
+                <label for="firstName">First name:</label><br>
+                <input type="text" id="firstName" name="firstName"><br>
+                <label for="lastName">Last name:</label><br>
+                <input type="text" id="lastName" name="lastName"><br>
+                <label for="newEmail">Email:</label><br>
+                <input type="text" id="newEmail" name="newEmail"><br>
+                <label for="newUsername">Create a username:</label><br>
+                <input type="text" id="newUsername" name="newUsername"><br>
+                <label for="newPassword">Create your password:</label><br>
+                <input type="password" id="newPassword" name="newPassword"><br>
+                <label for="confirmPassword">Re-enter password to confirm:</label><br>
+                <input type="password" id="confirmPassword" name="confirmPassword"><br>
+                <input class="button is-small is-primary mt-2 type="submit" id="signupSubmit" value="Sign up">
+              </form>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/signup.js"></script>
