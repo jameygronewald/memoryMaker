@@ -67,8 +67,10 @@ router.get("/", (req, res) => {
         };
         return memoryObject;
       })
+      
       const memories = {
-        memory: memoryArray
+        memory: memoryArray,
+        user: verifiedToken.data
       };
       res.render("memories", memories);
     });
