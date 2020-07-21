@@ -9,9 +9,7 @@ $(document).ready(function () {
   
   // const url = $("#url");
 
-  newMemoryForm.on("click", function (event) {
-    // // Sets a flag for whether or not we're updating a post to be false initially
-    // let updating = false;
+  newMemoryForm.on("click", (event) => {
     event.preventDefault();
     let ratingStars = $("#rating input[name='star']:checked");
     const memoryId = event.target.getAttribute("data-id");
@@ -23,8 +21,8 @@ $(document).ready(function () {
       category: category.val().trim(),
       rating: ratingStars.val(),
     };
-    // If we're updating a memory run updateMemory to update a memory
-    // Otherwise run submitmemory to create a whole new event
+    // If we're updating a memory, memoryId will have a value and we will run updateMemory to update a memory
+    // Otherwise run submitMemory to create a whole new event
     if (!memoryId) {
       submitNewMemory(newEventData);
     } else {
@@ -38,15 +36,15 @@ $(document).ready(function () {
     category.val("");
   });
 
-  function submitNewMemory(newEvent) {
+  const submitNewMemory = newEvent => {
     const formData = new FormData();
 
-    Object.keys(newEvent).forEach(function (field) {
+    Object.keys(newEvent).forEach(field => {
       const value = newEvent[field];
       formData.append(field, value);
     });
 
-    $.each($("input[type='file']")[0].files, function (i, file) {
+    $.each($("input[type='file']")[0].files, (i, file) => {
       formData.append("file[]", file);
     });
 
@@ -76,24 +74,21 @@ $(document).ready(function () {
       .then(res => {
         window.location.replace(`/memories`);
       })
-      .catch(function (err) {
+      .catch(() => {
         alert("Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!");
-  });
-  }
-
+      });
+  };
   // Update a given event, bring user to the blog page when done
-  function updateMemory(memory) {
+  const updateMemory = memory => {
     const memoryId = event.target.getAttribute("data-id");
-    console.log(memoryId);
-
     $.ajax({
       method: "PUT",
       url: "/api/newMemory/"+memoryId,
       data: memory,
-    }).then(function () {
+    }).then(() => {
       window.location.replace("/memories");
     });
-  }
+  };
 });
 
 

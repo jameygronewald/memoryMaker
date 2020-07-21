@@ -10,28 +10,27 @@ router.get("/id/:id", (req, res) => {
       where: {
         id: req.params.id
       }
-    })
-      .then(memoryData => {
-        const { id, title, date, description, location, rating } = memoryData.dataValues;
-        const memoryObject = {
-          id: id,
-          title: title,
-          date: date,
-          description: description,
-          location: location,
-          rating: rating
-        };
-        memoryArray = [];
-        memoryArray.push(memoryObject);
-        const selectedMemory = {
-          memory: memoryArray
-        };
-        res.render("memory", selectedMemory);
-      });
-    } catch(error) {
-      console.error(error)
-      res.status(401).redirect('/');
-    }
+    }).then(memoryData => {
+      const { id, title, date, description, location, rating } = memoryData.dataValues;
+      const memoryObject = {
+        id: id,
+        title: title,
+        date: date,
+        description: description,
+        location: location,
+        rating: rating
+      };
+      memoryArray = [];
+      memoryArray.push(memoryObject);
+      const selectedMemory = {
+        memory: memoryArray
+      };
+      res.render("memory", selectedMemory);
+    });
+  } catch(error) {
+    console.error(error)
+    res.status(401).redirect('/');
+  }
 });
 
 router.get("/", (req, res) => {
@@ -46,27 +45,26 @@ router.get("/", (req, res) => {
           model: db.Image,
         }
       ]
-    })
-      .then(memoryData => {
-        const memoryArray = memoryData.map(memory => {
-          const { id, title, date, description, location, rating, UserUsername, Images} = memory.dataValues;
-          const memoryObject = {
-            id: id,
-            title: title,
-            date: date,
-            description: description,
-            location: location,
-            rating: rating,
-            username: UserUsername,
-            imageArray: Images[0] ? Images[0].dataValues.url : ''
-          };
-          return memoryObject;
-        })
-        const memories = {
-          memory: memoryArray
+    }).then(memoryData => {
+      const memoryArray = memoryData.map(memory => {
+        const { id, title, date, description, location, rating, UserUsername, Images} = memory.dataValues;
+        const memoryObject = {
+          id: id,
+          title: title,
+          date: date,
+          description: description,
+          location: location,
+          rating: rating,
+          username: UserUsername,
+          imageArray: Images[0] ? Images[0].dataValues.url : ''
         };
-        res.render("memories", memories);
-      });
+        return memoryObject;
+      })
+      const memories = {
+        memory: memoryArray
+      };
+      res.render("memories", memories);
+    });
   } catch(error) {
     console.error(error)
     res.status(401).redirect('/');
@@ -88,7 +86,7 @@ router.delete("/id/:id", (req, res) => {
     });
   } catch(error) {
     console.error(error)
-    res.status(401).redirect('/');
+    res.status(401);
   }
 });
 
