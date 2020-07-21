@@ -12,6 +12,7 @@ cloudinary.config({
 });
 
 router.post("/", async (req, res) => {
+  const verifiedToken = await verifyToken(req.cookies.sessionToken);
   const form = new multiparty.Form();
 
   const successHandler = (result) => {
@@ -49,8 +50,6 @@ router.post("/", async (req, res) => {
   const category = await db.Category.create({ categoryName }).catch(
     errorHandler
   );
-
-  const verifiedToken = await verifyToken(req.cookies.sessionToken);
 
   const event = await db.Event.create({
     title: eventData.title,
@@ -91,29 +90,31 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  console.log(req.body);
-console.log(   req.body.title,
-  );
-  db.Event.update({
-    title: req.body.title,
-    date: req.body.date,
-    description:req.body.description,
-    location: req.body.location,
-    rating: req.body.rating,
-    CategoryId: req.body.id
-  },{
-    where: {
-      id: parseInt(req.params.id),
+  try {
+    verifyToken(req.cookies.sessionToken);
+    db.Event.update({
+      title: req.body.title,
+      date: req.body.date,
+      description:req.body.description,
+      location: req.body.location,
+      rating: req.body.rating,
+      CategoryId: req.body.id
     },
-  })
-    .then((response) => {
-      res.json(response)
+    {
+      where: {
+        id: parseInt(req.params.id),
+      },
     })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((response) => {
+        res.json(response)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  } catch(error) {
+    console.error(error)
+    res.status(401).redirect('/');
+  } 
 });
-
-
 
 module.exports = router;
