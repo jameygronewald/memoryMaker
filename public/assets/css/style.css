@@ -1,5 +1,10 @@
 html {
   background-color: whitesmoke;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
 }
 
 .main-bg {
@@ -31,11 +36,26 @@ html {
 
 .filters {
   background-color: white;
-  box-shadow: 0 0 10px;
+  box-shadow: 0 0 1px;
   border-radius: 0px 0px 5px 5px;
   z-index: 2;
 }
 
 .filters button {
   width: 100%;
+}
+
+.memory-container {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.memory-cards {
+  height: 100%;
+}
+
+.memory-card {
+  background-color: white;
+  box-shadow: 0 0 1px;
+  border-radius: 5px;
 }
