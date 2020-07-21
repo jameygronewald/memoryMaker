@@ -12,9 +12,7 @@ $(document).ready(() => {
     });
     const arrayOfDates = [];
     $(".datetime").each(function (index) {
-      console.log(
-        index + ": " + $(this).text().split(/\s+/).slice(1, 4).join(" ")
-      );
+      console.log(index + ": " + $(this).text().split(/\s+/).slice(1, 4).join(" "));
       arrayOfDates.push($(this).text().split(/\s+/).slice(1, 4).join(" "));
     });
     console.log(arrayOfDates);
