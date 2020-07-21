@@ -18,8 +18,8 @@ $(document).ready(function () {
       method: "DELETE",
       url: "/memories/id/" + memoryId,
     }).then(result => {
-      alert("deleted");
-      window.location.href = "/memories";
+      toastr.success("Memory deleted");
+      setTimeout(() => window.location.href = "/memories", 2000);
     });
   };
 
