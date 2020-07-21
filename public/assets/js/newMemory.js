@@ -5,7 +5,6 @@ $(document).ready(function () {
   const description = $("#description");
   const location = $("#location");
   const rating = $("#rating");
-  const category = $("#category");
 
   newMemoryForm.on("click", (event) => {
     event.preventDefault();
@@ -16,7 +15,6 @@ $(document).ready(function () {
       date: date.val().trim(),
       description: description.val().trim(),
       location: location.val().trim(),
-      category: category.val().trim(),
       rating: ratingStars.val(),
     };
     // If we're updating a memory, memoryId will have a value and we will run updateMemory to update a memory
@@ -31,7 +29,6 @@ $(document).ready(function () {
     date.val("");
     description.val("");
     location.val("");
-    category.val("");
   });
 
   const submitNewMemory = (newEvent) => {

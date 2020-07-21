@@ -47,9 +47,9 @@ router.post("/", async (req, res) => {
 
   console.log("formData!!!!", formData.files);
 
-  const category = await db.Category.create({ categoryName }).catch(
-    errorHandler
-  );
+  // const category = await db.Category.create({ categoryName }).catch(
+  //   errorHandler
+  // );
 
   const event = await db.Event.create({
     title: eventData.title,
@@ -57,7 +57,7 @@ router.post("/", async (req, res) => {
     description: eventData.description,
     location: eventData.location,
     rating: eventData.rating,
-    CategoryId: category.id,
+    // CategoryId: category.id,
     UserUsername: verifiedToken.data,
   }).catch(errorHandler);
   try {
@@ -98,7 +98,7 @@ router.put("/:id", (req, res) => {
       description:req.body.description,
       location: req.body.location,
       rating: req.body.rating,
-      CategoryId: req.body.id
+      // CategoryId: req.body.id
     },
     {
       where: {
