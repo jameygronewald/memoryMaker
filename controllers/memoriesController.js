@@ -63,7 +63,7 @@ router.get("/", (req, res) => {
           location: location,
           rating: rating,
           username: UserUsername,
-          imageArray: Images[0] ? Images[0].dataValues.url : ''
+          imageArray: Images[0] ? Images[0].dataValues.url : './assets/images/memories-icon.jpg'
         };
         return memoryObject;
       })
