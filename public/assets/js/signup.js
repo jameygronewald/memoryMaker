@@ -38,7 +38,8 @@ $(document).ready(function() {
         .then(res => {
           localStorage.setItem('sessionToken', res.sessionToken);
           document.cookie = `sessionToken=${res.sessionToken}`;
-          window.location.replace('/memories');
+          toastr.success("Account creation successful");
+          setTimeout(() => window.location.replace('/memories'), 2000);
         })
         .catch(err => {
           const errorMsg = JSON.parse(err.responseText)
