@@ -69,7 +69,8 @@ $(document).ready(function () {
       url: "/api/newMemory/"+memoryId,
       data: memory,
     }).then(() => {
-      window.location.replace("/memories");
+      toastr.success("Memory has been updated")
+      setTimeout(() => window.location.replace("/memories"),2000);
     });
   };
 });
