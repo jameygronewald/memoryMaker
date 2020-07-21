@@ -40,7 +40,7 @@
       <div class="column is-mobile is-9-tablet is-8-desktop">
         <div class="columns is-mobile is-multiline is-centered filters">
           <div class="column is-half-mobile">
-            <button class="button is-primary" >Default</button>
+            <button class="button is-primary">Default</button>
           </div>
           <div class="column is-half-mobile">
             <button class="button is-primary">By Range</button>
@@ -65,6 +65,8 @@
   <div class="container is-fluid">
     <div class="columns is-mobile is-centered">
       <div class="column is-11-mobile is-8-tablet is-half-desktop memory-container">
+        {{!-- Dynamically load memory cards --}}
+        {{#each memory}}
         <div class="box memory-card">
           <article class="media columns is-multiline is-mobile is-centered flex-rtl">
             <div class="media-center">
@@ -74,21 +76,23 @@
             </div>
             <div class="media-content column is-12-mobile">
               <div class="content">
-                <h2>Memory 1</h2>
+                <h2>{{title}}&emsp;<button data-id="{{this.id}}" class="button is-small viewButton">View</button></h2>
                 <p>
-                  Date: mm/dd/yyyy
+                  Date: {{date}}
                 </p>
                 <p>
-                  Location: Atlanta, GA
+                  Location: {{location}}
                 </p>
                 <p>
-                  Rating: *****
+                  Rating: {{rating}}
                 </p>
               </div>
             </div>
           </article>
         </div>
-        <div class="box memory-card">
+        {{/each}}
+
+        {{!-- <div class="box memory-card">
           <article class="media columns is-multiline is-mobile is-centered flex-rtl">
             <div class="media-center">
               <figure class="image">
@@ -156,15 +160,15 @@
               </div>
             </div>
           </article>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
 </section>
 
 
-{{!-- OLD CODE --}}
-<br><br><br><br>
+{{!-- OLD CODE 4 REFERENCE --}}
+{{!-- <br><br><br><br>
 <div style="background-color:lightyellow;">
   <div class="columns" style="background-color:#00d1b2;text-align:center; padding: 5px; padding-left:450px;">
     <button id="createButton" class="button is-warning"
@@ -201,7 +205,7 @@
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/memories.js"></script>
