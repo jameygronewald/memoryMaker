@@ -1,39 +1,211 @@
+<!-- Header -->
+<section class="hero welcome has-background-primary">
+  <div class="hero-body py-5">
+    <div class="container">
+      <h1 class="title has-text-centered has-text-weight-bold is-2">
+        User's Memories
+      </h1>
+      <div class="columns is-centered">
+        <div class="column is-4-desktop is-5-tablet">
+          <nav class="level">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <button id="createButton" class="button is-info">
+                  Create memory
+                </button>
+              </div>
+            </div>
+
+            <!-- Right side -->
+            <div class="level-right">
+              <div class="level-item">
+                <button id="logoutButton" class="button is-warning">
+                  Logout
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="has-text-centered has-text-white">FILTERS: (In development)</h2>
+</section>
+
+<!-- Navbar -->
+<nav>
+  <div class="container is-fluid">
+    <div class="columns is-mobile is-multiline is-centered pt-2">
+      <div class="column is-mobile is-9-tablet is-8-desktop">
+        <div class="columns is-mobile is-multiline is-centered filters">
+          <div class="column is-half-mobile">
+            <button class="button is-primary">Default</button>
+          </div>
+          <div class="column is-half-mobile">
+            <button class="button is-primary">By Range</button>
+          </div>
+          <div class="column is-half-mobile">
+            <button class="button is-primary">By Location</button>
+          </div>
+          <div class="column is-half-mobile">
+            <button class="button is-primary">By Category</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Memories Container -->
+<section class="pt-5">
+  <h1 class="subtitle has-text-centered"><u>Memory Cards</u></h1>
+
+  <!-- Memory Cards -->
+  <div class="container is-fluid">
+    <div class="columns is-mobile is-centered">
+      <div class="column is-11-mobile is-8-tablet is-half-desktop memory-container">
+        {{!-- Dynamically load memory cards --}}
+        {{#each memory}}
+        <div class="box memory-card">
+          <article class="media columns is-multiline is-mobile is-centered flex-rtl">
+            <div class="media-center">
+              <figure class="image">
+                <img src="../assets/images/memories-icon.jpg" style="width: 175px;" alt="Sweet Memories Icon" />
+              </figure>
+            </div>
+            <div class="media-content column is-12-mobile">
+              <div class="content">
+                <h2>{{title}}&emsp;<button data-id="{{this.id}}" class="button is-small viewButton">View</button></h2>
+                <p>
+                  Date: {{date}}
+                </p>
+                <p>
+                  Location: {{location}}
+                </p>
+                <p>
+                  Rating: {{rating}}
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        {{/each}}
+
+        {{!-- <div class="box memory-card">
+          <article class="media columns is-multiline is-mobile is-centered flex-rtl">
+            <div class="media-center">
+              <figure class="image">
+                <img src="../assets/images/memories-icon.jpg" style="width: 175px;" alt="Sweet Memories Icon" />
+              </figure>
+            </div>
+            <div class="media-content column is-12-mobile">
+              <div class="content">
+                <h2>Memory 2</h2>
+                <p>
+                  Date: mm/dd/yyyy
+                </p>
+                <p>
+                  Location: Atlanta, GA
+                </p>
+                <p>
+                  Rating: *****
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="box memory-card">
+          <article class="media columns is-multiline is-mobile is-centered flex-rtl">
+            <div class="media-center">
+              <figure class="image">
+                <img src="../assets/images/memories-icon.jpg" style="width: 175px;" alt="Sweet Memories Icon" />
+              </figure>
+            </div>
+            <div class="media-content column is-12-mobile">
+              <div class="content">
+                <h2>Memory 3</h2>
+                <p>
+                  Date: mm/dd/yyyy
+                </p>
+                <p>
+                  Location: Atlanta, GA
+                </p>
+                <p>
+                  Rating: *****
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="box memory-card">
+          <article class="media columns is-multiline is-mobile is-centered flex-rtl">
+            <div class="media-center">
+              <figure class="image">
+                <img src="../assets/images/memories-icon.jpg" style="width: 175px;" alt="Sweet Memories Icon" />
+              </figure>
+            </div>
+            <div class="media-content column is-12-mobile">
+              <div class="content">
+                <h2>Memory 4</h2>
+                <p>
+                  Date: mm/dd/yyyy
+                </p>
+                <p>
+                  Location: Atlanta, GA
+                </p>
+                <p>
+                  Rating: *****
+                </p>
+              </div>
+            </div>
+          </article>
+        </div> --}}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{!-- OLD CODE 4 REFERENCE --}}
+{{!-- <br><br><br><br>
 <div style="background-color:lightyellow;">
   <div class="columns" style="background-color:#00d1b2;text-align:center; padding: 5px; padding-left:450px;">
-    <button id="createButton" class="button is-warning" style="margin-left:10px;margin-right:5px;;margin-top:10px;">Create a memory</button>
-      <div>
-        <button class="button button is-light" style="margin-top:10px;">Recent</button>
-        <button class="button button is-light" style="margin-top:10px;">Range</button>
-        <button class="button button is-light" style="margin-top:10px;">Category</button>
-        <button id="logoutButton" class="button button is-light" style="margin-top:10px;">Logout</button>
-      </div>
+    <button id="createButton" class="button is-warning"
+      style="margin-left:10px;margin-right:5px;;margin-top:10px;">Create a memory</button>
+    <div>
+      <button class="button button is-light" style="margin-top:10px;">Recent</button>
+      <button class="button button is-light" style="margin-top:10px;">Range</button>
+      <button class="button button is-light" style="margin-top:10px;">Category</button>
+      <button id="logoutButton" class="button button is-light" style="margin-top:10px;">Logout</button>
+    </div>
   </div>
   <div class="columns">
     <div class="column" style="border: 1px solid black; margin: 50px; text-align:center; background-color:lightgray;">
       <div class="title">
         Memories Feed
       </div>
-  <!-- Pass in data from server.js -->
+      <!-- Pass in data from server.js -->
       <ul>
         {{#each memory}}
-          <li>
-            <p><span class="label">Title:</span> {{title}}</p>
-            <p><span class="label">Date:</span> {{date}}</p>
-            <p><span class="label">Description:</span> {{description}}</p>
-            <p><span class="label">Rating:</span> {{rating}}</p>
-            <p><span class="label">Location:</span> {{location}}</p>
-            <div id="image">
-              <p class="label">Image:</p>
-              <img id="thumbnail" src="{{imageArray}}"/>
-            </div>
-              
-            <button data-id="{{this.id}}" class="viewButton">View Details</button>
-          </li>
+        <li>
+          <p><span class="label">Title:</span> {{title}}</p>
+          <p><span class="label">Date:</span> {{date}}</p>
+          <p><span class="label">Description:</span> {{description}}</p>
+          <p><span class="label">Rating:</span> {{rating}}</p>
+          <p><span class="label">Location:</span> {{location}}</p>
+          <div id="image">
+            <p class="label">Image:</p>
+            <img id="thumbnail" src="{{imageArray}}" />
+          </div>
+
+          <button data-id="{{this.id}}" class="viewButton">View Details</button>
+        </li>
         {{/each}}
       </ul>
     </div>
   </div>
-</div>
+</div> --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/memories.js"></script>
