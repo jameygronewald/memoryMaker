@@ -2,24 +2,50 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title has-text-centered has-text-weight-bold is-2">
-        Login
+        Welcome to Memory Maker!
       </h1>
     </div>
   </div>
 </section>
-<section>
-    <div class="columns">
-        <div class="column" style="border: 1px solid black; text-align:center; margin: 50px auto; background-color:lightgrey;">
-            <form id="loginForm">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br>
-    <input type="submit" id="signupSubmit" value="Log in to your account">
-</form>
+
+<div class="container is-fluid main-bg">
+  <div class="columns is-mobile is-centered mt-6">
+    <div class="box column is-mobile is-two-thirds-tablet is-half-desktop">
+      <article class="media columns is-multiline is-mobile is-centered">
+        <div class="media-left column is-12-mobile is-4-tablet mx-0">
+          <figure class="image">
+            <img src="../assets/images/memories-icon.jpg" style="width:200px; margin: auto" alt="Sweet Memories Icon">
+          </figure>
+        </div>
+        <div class="media-content column is-12-mobile">
+          <div class="content">
+            <h2>Login</h2>
+            <p>
+              Enter your username and password:
+            </p>
+          </div>
+          <section>
+            <div class="columns">
+              <div class="column">
+                <form id="loginForm">
+                  <label for="username">Username:</label><br>
+                  <input type="text" id="username" name="username"><br>
+                  <label for="password">Password:</label><br>
+                  <input type="password" id="password" name="password"><br>
+                  <input class="button is-small is-primary mt-2" type="submit" id="signupSubmit" value="Login to account">
+                </form>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="/assets/js/login.js"></script>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/js/login.js"></script>
-        </div>
-    </div>
-</section>
