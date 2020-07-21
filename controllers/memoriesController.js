@@ -9,16 +9,23 @@ router.get("/id/:id", (req, res) => {
     db.Event.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [
+        {
+          model: db.Image,
+        }
+      ]
     }).then(memoryData => {
-      const { id, title, date, description, location, rating } = memoryData.dataValues;
+      const { id, title, date, description, location, rating, UserUsername, Images } = memoryData.dataValues;
       const memoryObject = {
         id: id,
         title: title,
         date: date,
         description: description,
         location: location,
-        rating: rating
+        rating: rating,
+        username: UserUsername,
+        imageArray: Images[0] ? Images[0].dataValues.url : ''
       };
       memoryArray = [];
       memoryArray.push(memoryObject);

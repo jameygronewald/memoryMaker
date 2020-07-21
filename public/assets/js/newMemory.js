@@ -6,8 +6,6 @@ $(document).ready(function () {
   const location = $("#location");
   const rating = $("#rating");
   const category = $("#category");
-  
-  // const url = $("#url");
 
   newMemoryForm.on("click", (event) => {
     event.preventDefault();
@@ -48,21 +46,6 @@ $(document).ready(function () {
       formData.append("file[]", file);
     });
 
-    // $.ajax({
-    //   type: "POST",
-    //   url: "/api/newMemory",
-    //   cache: false,
-    //   contentType: false,
-    //   processData: false,
-    //   data: formData,
-    //   success: function (result) {
-    //     window.location.href = "/memories";
-    //   },
-    //   error: function (err) {
-    //     // throw err;
-    //     alert("Please, make sure to fill out each field and choose rating for your memories!");
-    //   },
-    // });
     $.ajax({
       type: "POST",
       url: "/api/newMemory",
@@ -90,35 +73,3 @@ $(document).ready(function () {
     });
   };
 });
-
-
-
-// const idNum = window.location.pathname.split("/")[3];
-// const update = $("#update-memory");
-// function updateMemory(par) {
-
-//   $.ajax({
-//     method: "GET",
-//     url: "/newMemory/" + idNum,
-//     data: par,
-//   }).then(function () {
-//     window.location.href = "/newMemory/"+ idNum;
-//   });
-// }
-// update.on("click", (event) => {
-//   event.preventDefault();
-//   const memoryId = event.target.getAttribute("data-id");
-
-//   console.log(typeof memoryId);
-//   var updMemory = {
-//     id: parseInt(memoryId),
-//     title: $("#title").text(),
-//     date: $("#date").text(),
-//     description: $("#description").text(),
-//     rating: $("#rating").text(),
-//     location: $("#location").text(),
-//     category: $("#category").text(),
-//     image: $("#image").text(),
-//   };
-//   updateMemory(updMemory);
-// });

@@ -20,7 +20,10 @@
           <p><span id="rating" class="label">Rating:</span> {{rating}}</p>
           <p><span id="location" class="label">Location:</span> {{location}}</p>
           <p><span id="category" class="label">Category:</span> {{category}}</p>
-          <p><span id="image" class="label">Image:</span> {{img}}</p>
+          <div id="image">
+              <p class="label">Image:</p>
+              <img id="thumbnail" src="{{imageArray}}"/>
+          </div>
 
           <button id="delete-memory" data-id="{{this.id}}" class="delmemory">Delete</button>
 
