@@ -30,7 +30,7 @@ Memory Maker is a full-stack web application created with the MVC paradigm. Memo
 
 ## Images
 
-![Home Page](/images/homeScreenshot.png)
+![Home Page](./public/assets/images/homeScreenshot.png)
 
 ## Collaborators
 This app was created by Jared Porter, Volodymyr Petrytsya, Jamey Gronewald, and Austin Keener.

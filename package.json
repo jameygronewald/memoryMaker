@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "cloudinary": "^1.22.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
