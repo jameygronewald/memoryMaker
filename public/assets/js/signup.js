@@ -23,6 +23,9 @@ $(document).ready(function() {
         toastr.error("Password confirmation must match")
         return;
       };
+      if (userData.email === "email"){
+        toastr.error("this account already exists")
+      };
       signUpUser(userData);
       firstNameInput.val('');
       lastNameInput.val('');
