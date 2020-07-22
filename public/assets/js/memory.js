@@ -3,7 +3,6 @@ $(document).ready(function () {
   const update = $("#update-memory");
   const del = $("#delete-memory");
   
-
   const updateMemory = memoryData => {
     $.ajax({
       method: "GET",
