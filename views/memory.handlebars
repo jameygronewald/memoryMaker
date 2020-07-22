@@ -38,29 +38,29 @@
   <div class="columns is-mobile is-centered mt-6">
     <div class="box column is-mobile is-two-thirds-tablet is-8-desktop">
       <div class="columns">
-    <div class="column">
-      <ul>
-        {{#each memory}}
-        <li>
-          {{!-- <p><span id="title" class="label">Title:</span> {{title}}</p> --}}
-          <h2 class="title">{{date}}</h2>
-          <h3 class="subtitle"><strong>Location:</strong> {{location}}</h3>
-          <h3 class="subtitle"><strong>Description:</strong> {{description}}</h3>
-          <h3 class="subtitle"><strong>Rating:</strong> {{rating}}</h3>
-          <div class="has-text-centered mb-6" id="image">
-            {{!-- <p class="label"><u>Photo</u></p> --}}
-            <img src="{{imageArray}}" class="single-memory" style="width: 330px;" />
-          </div>
+        <div class="column">
+          <ul>
+            {{#each memory}}
+            <li>
+              {{!-- <p><span id="title" class="label">Title:</span> {{title}}</p> --}}
+              <h2 class="title">{{date}}</h2>
+              <h3 class="subtitle"><strong>Location:</strong> {{location}}</h3>
+              <h3 class="subtitle"><strong>Description:</strong> {{description}}</h3>
+              <h3 class="subtitle"><strong>Rating:</strong> {{rating}}</h3>
+              <div class="has-text-centered mb-6" id="image">
+                {{!-- <p class="label"><u>Photo</u></p> --}}
+                <img src="{{imageArray}}" class="single-memory" style="width: 330px;" />
+              </div>
 
-          <button id="delete-memory" data-id="{{this.id}}" class="button is-small is-danger">Delete</button>
-          <button id="update-memory" data-id="{{this.id}}" class="button is-small is-primary">Update this memory</button>
-        </li>
-        {{/each}}
-      </ul>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="/assets/js/memory.js"></script>
-    </div>
-  </div>
+              <button id="delete-memory" data-id="{{this.id}}" class="button is-small is-danger">Delete</button>
+              <button id="update-memory" data-id="{{this.id}}" class="button is-small is-primary">Update memory</button>
+            </li>
+            {{/each}}
+          </ul>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="/assets/js/memory.js"></script>
+        </div>
+      </div>
     </div>
   </div>
 </div>

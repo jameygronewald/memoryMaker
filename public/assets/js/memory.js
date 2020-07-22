@@ -2,10 +2,7 @@ $(document).ready(function () {
   const idNum = window.location.pathname.split("/")[3];
   const update = $("#update-memory");
   const del = $("#delete-memory");
-  const goBack = $("#goBack");
-  goBack.on("click", () => {
-    window.location.replace("/memories");
-  })
+  
 
   const updateMemory = memoryData => {
     $.ajax({
