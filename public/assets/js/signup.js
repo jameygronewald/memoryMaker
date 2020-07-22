@@ -33,7 +33,7 @@ $(document).ready(function() {
       confirmPasswordInput.val('');
     });
 
-    function signUpUser(newUser) {
+    const signUpUser = newUser => {
       $.post('/users/signup', newUser)
         .then(res => {
           localStorage.setItem('sessionToken', res.sessionToken);
