@@ -39,6 +39,11 @@ body {
   border-radius: 5px;
 }
 
+.single-memory {
+border-radius: 5px;
+border: 2px solid black;
+}
+
 .filters {
   background-color: white;
   box-shadow: 0 0 3px;
