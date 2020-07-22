@@ -2,7 +2,11 @@ $(document).ready(function () {
   const idNum = window.location.pathname.split("/")[3];
   const update = $("#update-memory");
   const del = $("#delete-memory");
-  
+  const goBack = $("#goBack");
+  goBack.on("click", () => {
+    window.location.replace("/memories");
+  })
+
   const updateMemory = memoryData => {
     $.ajax({
       method: "GET",
@@ -21,7 +25,7 @@ $(document).ready(function () {
       setTimeout(() => window.location.href = "/memories", 2000);
     });
   };
-
+  
   update.on("click", (event) => {
     event.preventDefault();
     const memoryId = event.target.getAttribute("data-id");
