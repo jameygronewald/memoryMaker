@@ -57,7 +57,7 @@ $(document).ready(function () {
       })
       .catch(() => {
         toastr.error(
-          "Please, make sure to fill out each field with at least 3 characters and choose rating for your memories!"
+          "Please make sure to fill out each field with at least 3 characters and choose rating for your memories!"
         );
       });
   };

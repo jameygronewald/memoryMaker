@@ -25,7 +25,7 @@ router.get("/id/:id", (req, res) => {
         location: location,
         rating: rating,
         username: UserUsername,
-        imageArray: Images[0] ? Images[0].dataValues.url : './assets/images/memories-icon.jpg'
+        imageArray: Images[0] ? Images[0].dataValues.url : ''
       };
       memoryArray = [];
       memoryArray.push(memoryObject);
