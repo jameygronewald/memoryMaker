@@ -3,11 +3,9 @@ $(document).ready(function () {
   const update = $("#update-memory");
   const del = $("#delete-memory");
   const goBack = $("#goBack");
-
   goBack.on("click", () => {
     window.location.replace("/memories");
   })
-
 
   const updateMemory = memoryData => {
     $.ajax({
@@ -27,7 +25,7 @@ $(document).ready(function () {
       setTimeout(() => window.location.href = "/memories", 2000);
     });
   };
-
+  
   update.on("click", (event) => {
     event.preventDefault();
     const memoryId = event.target.getAttribute("data-id");
@@ -49,6 +47,4 @@ $(document).ready(function () {
     delMemory(event);
   });
 
- 
-  
 });
