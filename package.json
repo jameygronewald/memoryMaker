@@ -1,5 +1,5 @@
 {
-  "name": "project-two",
+  "name": "memorymaker",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/austingraphicandweb/project-two.git"
+    "url": "git+https://github.com/jameygronewald/memoryMaker.git"
   },
-  "author": "Group10",
+  "author": "Group 10",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/austingraphicandweb/project-two/issues"
+    "url": "https://github.com/jameygronewald/memoryMaker/issues"
   },
-  "homepage": "https://github.com/austingraphicandweb/project-two#readme"
+  "homepage": "https://github.com/jameygronewald/memoryMaker#readme"
 }
